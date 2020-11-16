@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "52695681543",
+    "firebase_url": "https://design-projects.firebaseio.com",
+    "project_id": "design-projects",
+    "storage_bucket": "design-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52695681543:android:cdac1690231e30d971b8a2",
+        "android_client_info": {
+          "package_name": "com.teamnine.protest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52695681543-lv89fcrekmsbmforl8evshuev6b7qjed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Jkzdsz5qkHqofLIn6qJ9CKlpmusc6cM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52695681543-lv89fcrekmsbmforl8evshuev6b7qjed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
