@@ -11,6 +11,7 @@
     <string name="datesHeading"> DATES</string>
     <string name="descriptionHeading"> DESCRIPTION</string>
 
+    <string name="success_string"><b>SUCCESS / EVENT CREATED</b></string>
 
     <string name="logo">protest.</string>
     <string name="enter_location_text"> enter the location of your event</string>
