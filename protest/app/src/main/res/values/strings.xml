@@ -12,6 +12,7 @@
     <string name="descriptionHeading"> DESCRIPTION</string>
 
 
+    <string name="logo">protest.</string>
     <string name="enter_location_text"> enter the location of your event</string>
     <string name="enter_name_text"> enter name</string>
     <string name="enter_startdate_text"> start date</string>

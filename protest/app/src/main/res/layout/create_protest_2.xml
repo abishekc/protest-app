@@ -64,7 +64,7 @@
         android:gravity="center"
         android:hint="@string/create_new_protest"
         android:inputType="text"
-        android:textColor="#FFFFFFF"
+        android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
