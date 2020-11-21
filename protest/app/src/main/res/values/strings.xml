@@ -3,4 +3,5 @@
     <string name="create_new_protest"><b>CREATE NEW PROTEST</b></string>
     <string name="route">ROUTE</string>
     <string name="route_description">ROUTE DESCRIPTION</string>
+    <string name="ellipse">Ellipse</string>
 </resources>

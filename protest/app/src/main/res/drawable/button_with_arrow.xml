@@ -6,14 +6,15 @@
             <stroke android:width="1dp" android:color="#000000"/>
             <corners android:radius="10px" />
             <gradient android:angle="360"
-                android:startColor="#FFFFFF"
-                android:endColor="#FFFFFF"
+                android:startColor="#4B4B4B"
+                android:endColor="#4B4B4B"
                 />
             <size
-                android:width="120dp"
-                android:height="120dp"/>
+                android:width="300dp"
+                android:height="300dp"/>
         </shape>
     </item>
-
-
+    <item
+        android:drawable="@drawable/right_arrow"
+        />
 </layer-list>
