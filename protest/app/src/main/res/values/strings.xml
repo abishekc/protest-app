@@ -1,27 +1,5 @@
 <resources>
     <string name="app_name">protest</string>
-
-    <string name="logo">protest.</string>
-
-    <string name="create_new_protest_heading"> CREATE NEW PROTEST</string>
-    <string name="Location_heading"> LOCATION</string>
-    <string name="nameHeading"> NAME</string>
-    <string name="datesHeading"> DATES</string>
-    <string name="descriptionHeading"> DESCRIPTION</string>
-
-
-    <string name="enter_location_text"> enter the location of your event</string>
-    <string name="enter_name_text"> enter name</string>
-    <string name="enter_startdate_text"> start date</string>
-    <string name="enter_enddate_text"> end date</string>
-    <string name="enter_description_text"> enter your description</string>
-    <string name="enter_login_text"> Login</string>
-    <string name="enter_username_text"> Username</string>
-    <string name="enter_password_text"> Password</string>
-
-    <string name="signup_button"> Signup</string>
-
-
     <string name="create_new_protest"><b>CREATE NEW PROTEST</b></string>
     <string name="route">ROUTE</string>
     <string name="route_description">ROUTE DESCRIPTION</string>
