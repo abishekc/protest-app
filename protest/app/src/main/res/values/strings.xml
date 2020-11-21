@@ -12,6 +12,9 @@
     <string name="descriptionHeading"> DESCRIPTION</string>
 
     <string name="success_string"><b>SUCCESS / EVENT CREATED</b></string>
+    <string name="facebook_share"><b>SHARE TO FACEBOOK</b></string>
+    <string name="twitter_share"><b>SHARE TO TWITTER</b></string>
+    <string name="regular_share">SHARE</string>
 
     <string name="logo">protest.</string>
     <string name="enter_location_text"> enter the location of your event</string>

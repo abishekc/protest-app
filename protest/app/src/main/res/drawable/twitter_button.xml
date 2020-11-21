@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- //Credit from https://www.youtube.com/watch?v=rsqFpIp_DDA&ab_channel=Rectfy -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="0dp" android:color="#000000"/>
+            <corners android:radius="15px" />
+            <gradient android:angle="360"
+                android:startColor="#2DB0D9"
+                android:endColor="#2DB0D9"
+                />
+            <size
+                android:width="120dp"
+                android:height="120dp"/>
+        </shape>
+    </item>
+
+
+</layer-list>
