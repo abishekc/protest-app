@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, login.class);
             startActivity(i);
             finish();
+        } else {
+            Log.i("SUCCESS", "User is already logged in, UUID is: " + FirebaseAuth.getInstance().getCurrentUser().getUid());
         }
     }
 }
