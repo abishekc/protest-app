@@ -22,7 +22,8 @@
     <string name="enter_startdate_text"> start date</string>
     <string name="enter_enddate_text"> end date</string>
     <string name="enter_description_text"> enter your description</string>
-    <string name="enter_login_text"> Login</string>
+    <string name="enter_login_text"> Login</string>]
+    <string name="enter_signup_text"> Signup</string>
     <string name="enter_username_text"> Username</string>
     <string name="enter_password_text"> Password</string>
 
