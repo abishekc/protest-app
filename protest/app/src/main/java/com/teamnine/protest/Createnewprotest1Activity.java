@@ -41,10 +41,10 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         EditText descriptionBox = (EditText) findViewById(R.id.enterDescription);
 
         String name = nameBox.getText().toString();
-        String location = nameBox.getText().toString();
-        String description = nameBox.getText().toString();
-        String startDate = nameBox.getText().toString();
-        String endDate = nameBox.getText().toString();
+        String location = locationBox.getText().toString();
+        String description = descriptionBox.getText().toString();
+        String startDate = startDateBox.getText().toString();
+        String endDate = endDateBox.getText().toString();
 
         String owner = "empty_ownerE1";
         String id = "empty_idE1";
