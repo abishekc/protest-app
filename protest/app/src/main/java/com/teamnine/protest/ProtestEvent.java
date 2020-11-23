@@ -28,29 +28,77 @@ public class ProtestEvent implements Parcelable {
         this.owner = owner;
     }
 
-    public void setRouteDescription(String routeDes) {
-        routeDescription = routeDes;
-    }
-
-    public void setSentiment(int score) {
-        sentiment = score;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    /* SETTERS AND GETTERS START */
     public String getId() {
         return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getStartDate() {
         return startDate;
     }
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public int getSentiment() {
+        return sentiment;
+    }
+    public void setSentiment(int sentiment) {
+        this.sentiment = sentiment;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+    public void setRoute(String route) {
+        this.route = route;
+    }
+
+    public String getRouteDescription() {
+        return routeDescription;
+    }
+    public void setRouteDescription(String routeDescription) {
+        this.routeDescription = routeDescription;
+    }
+    /* SETTERS AND GETTERS END*/
 
     protected ProtestEvent(Parcel in) {
         id = in.readString();
