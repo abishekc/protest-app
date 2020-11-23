@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Createnewprotest1Activity extends AppCompatActivity {
 
@@ -14,9 +18,20 @@ public class Createnewprotest1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createnewprotest1);
+
+        /* UI COMPONENTS */
+        /* BUTTONS */
+        ImageButton next = (ImageButton) findViewById(R.id.next_screen_two);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextScreen();
+            }
+        });
     }
 
-    public void nextScreen(View view) {
+    public void nextScreen() {
         Intent intent = new Intent(this, CreateNewProtest2Activity.class);
 
         EditText nameBox = (EditText) findViewById(R.id.name_input);
@@ -31,7 +46,16 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         String startDate = nameBox.getText().toString();
         String endDate = nameBox.getText().toString();
 
-        ProtestEvent newEvent = new ProtestEvent(name, location, startDate, endDate, description, "Put owner here");
+        String owner = "empty_ownerE1";
+        String id = "empty_idE1";
+        String userID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        if (userID != "" && userID != null) {
+            owner = userID;
+        }
+
+        ProtestEvent newEvent = new ProtestEvent(id, name, location, startDate, endDate, description, owner);
+
 
 //       TODO: Sentiment score
 //        newEvent.setSentiment(score);

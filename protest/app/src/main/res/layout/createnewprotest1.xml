@@ -234,7 +234,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/next_screen_two"
         android:layout_width="59dp"
         android:layout_height="44dp"
         android:layout_marginEnd="24dp"

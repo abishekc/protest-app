@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.util.Calendar;
 
 public class ProtestEvent implements Parcelable {
+    String id;
     String name;
     String location;
     String startDate;
@@ -17,7 +18,8 @@ public class ProtestEvent implements Parcelable {
     String route = null;
     String routeDescription = null;
 
-    public ProtestEvent(String name, String location, String startDate, String endDate, String description, String owner) {
+    public ProtestEvent(String id, String name, String location, String startDate, String endDate, String description, String owner) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.startDate = startDate;
@@ -34,7 +36,24 @@ public class ProtestEvent implements Parcelable {
         sentiment = score;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
     protected ProtestEvent(Parcel in) {
+        id = in.readString();
         name = in.readString();
         location = in.readString();
         startDate = in.readString();
@@ -65,6 +84,7 @@ public class ProtestEvent implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
         parcel.writeString(name);
         parcel.writeString(location);
         parcel.writeString(startDate);
