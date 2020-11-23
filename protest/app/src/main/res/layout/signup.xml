@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/signup_username_input"
+        android:id="@+id/signup_email_input"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/signup_username_input" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_email_input" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -84,7 +84,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_light"
-        android:text="@string/enter_login_text"
+        android:text="@string/enter_signup_text"
         android:textColorLink="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -99,7 +99,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="#00DDCCCC"
         android:fontFamily="@font/poppins_light"
-        android:text="@string/signup_button"
+        android:text="Already have an account?"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textColorLink="#FFFFFF"
