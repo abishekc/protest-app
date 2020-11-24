@@ -10,11 +10,17 @@
     <string name="nameHeading"> NAME</string>
     <string name="datesHeading"> DATES</string>
     <string name="descriptionHeading"> DESCRIPTION</string>
+    <string name="Location_heading_2"> LOCATION:</string>
+    <string name="start_date_heading_2"> START DATE:</string>
+    <string name="end_date_heading_2"> END DATE:</string>
+    <string name="description_Heading_2"> DESCRIPTION:</string>
 
     <string name="success_string"><b>SUCCESS / EVENT CREATED</b></string>
     <string name="facebook_share"><b>SHARE TO FACEBOOK</b></string>
     <string name="twitter_share"><b>SHARE TO TWITTER</b></string>
     <string name="regular_share">SHARE</string>
+    <string name="INFO">INFO</string>
+    <string name="event_details">EVENT DETAILS</string>
 
     <string name="logo">protest.</string>
     <string name="enter_location_text"> enter the location of your event</string>
@@ -26,6 +32,9 @@
     <string name="enter_signup_text"> Signup</string>
     <string name="enter_username_text"> Username</string>
     <string name="enter_password_text"> Password</string>
+
+    <string name="protest_title">protest</string>
+    <string name="full_stop">.</string>
 
     <string name="signup_button"> Signup</string>
 
