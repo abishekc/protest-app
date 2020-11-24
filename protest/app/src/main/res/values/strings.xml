@@ -28,4 +28,7 @@
     <string name="enter_password_text"> Password</string>
 
     <string name="signup_button"> Signup</string>
+
+    <string name="facebook_app_id">408214960308564</string>
+    <string name="facebook_login_protocol_scheme">fb408214960308564</string>
 </resources>

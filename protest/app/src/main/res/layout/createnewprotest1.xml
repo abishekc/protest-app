@@ -187,7 +187,7 @@
         android:contentDescription="@string/ellipse"
         android:src="@drawable/ellipse"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/next_screen_main"
         app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
