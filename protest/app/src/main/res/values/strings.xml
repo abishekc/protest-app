@@ -27,6 +27,8 @@
     <string name="enter_username_text"> Username</string>
     <string name="enter_password_text"> Password</string>
 
+    <string name="my_protest_heading"> MY PROTESTS</string>
+
     <string name="signup_button"> Signup</string>
 
     <string name="facebook_app_id">408214960308564</string>
