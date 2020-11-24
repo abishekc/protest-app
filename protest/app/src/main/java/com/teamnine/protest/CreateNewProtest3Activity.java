@@ -66,7 +66,7 @@ public class CreateNewProtest3Activity extends AppCompatActivity {
     }
 
     public void nextScreen() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MyprotestsActivity.class);
         startActivity(intent);
     }
 }

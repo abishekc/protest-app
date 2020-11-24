@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/nevis_bold"
-        android:text="@string/my_protest_heading"
+        android:text="My Protests"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -24,6 +24,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
 
+        android:id="@+id/protestList"
         android:layout_width="305dp"
         android:layout_height="502dp"
         android:background="@drawable/text_box_crossscreen"
