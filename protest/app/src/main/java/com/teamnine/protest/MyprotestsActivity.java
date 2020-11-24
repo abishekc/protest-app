@@ -30,9 +30,7 @@ public class MyprotestsActivity extends AppCompatActivity {
         setContentView(R.layout.myprotests);
 
         final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        System.out.println("HEEEEEEE");
-        System.out.println(userID);
-        final ArrayList<ProtestEvent> eventList = new ArrayList<>();
+        final ArrayList<ProtestEvent> eventList = new ArrayList<ProtestEvent>();
         final DatabaseReference events = FirebaseDatabase.getInstance().getReference().child("events");
         events.addValueEventListener(new ValueEventListener() {
             @Override
@@ -44,6 +42,7 @@ public class MyprotestsActivity extends AppCompatActivity {
                         eventList.add(protestEvent);
                     }
                 }
+                loadRecycler(eventList);
             }
 
             @Override
@@ -51,10 +50,9 @@ public class MyprotestsActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+    }
 
-
-        System.out.println(eventList);
-
+    public void loadRecycler(ArrayList<ProtestEvent> eventList) {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.protestList);
         recyclerView.setHasFixedSize(true);
 
@@ -80,10 +78,13 @@ public class MyprotestsActivity extends AppCompatActivity {
         events.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ProtestEvent protestEvent = dataSnapshot.getValue(ProtestEvent.class);
-                if (protestEvent.getId() == requestedEvent) {
-                    intent.putExtra("Event", protestEvent);
-                    startActivity(intent);
+                for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
+                    ProtestEvent protestEvent = eventSnapshot.getValue(ProtestEvent.class);
+                    if (protestEvent.getId() == requestedEvent) {
+                        intent.putExtra("Event", protestEvent);
+                        System.out.println("Hit");
+                        startActivity(intent);
+                    }
                 }
             }
 
@@ -92,5 +93,6 @@ public class MyprotestsActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+
     }
 }

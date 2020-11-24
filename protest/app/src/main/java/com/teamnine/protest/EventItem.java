@@ -15,6 +15,8 @@ public class EventItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eventitem);
 
+        System.out.println("Made it");
+
         Intent intent = getIntent();
         ProtestEvent passedEvent = intent.getParcelableExtra("Event");
 
