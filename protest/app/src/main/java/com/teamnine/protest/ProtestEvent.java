@@ -18,6 +18,8 @@ public class ProtestEvent implements Parcelable {
     String route = null;
     String routeDescription = null;
 
+    public ProtestEvent() {}
+
     public ProtestEvent(String id, String name, String location, String startDate, String endDate, String description, String owner) {
         this.id = id;
         this.name = name;
