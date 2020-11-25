@@ -13,8 +13,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/eventName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/eventName"
@@ -22,7 +24,6 @@
         android:layout_height="100dp"
         android:fontFamily="@font/circular_std_black"
         android:gravity="center_vertical|center"
-        android:onClick="switchToEvent"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

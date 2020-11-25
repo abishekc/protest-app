@@ -15,8 +15,6 @@ public class EventItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eventitem);
 
-        System.out.println("Made it");
-
         Intent intent = getIntent();
         ProtestEvent passedEvent = intent.getParcelableExtra("Event");
 
@@ -32,6 +30,6 @@ public class EventItem extends AppCompatActivity {
         eventStartDate.setText(passedEvent.getStartDate());
         eventEndDate.setText(passedEvent.getEndDate());
         eventDescription.setText(passedEvent.getDescription());
-        sentimentScore.setText(passedEvent.getSentiment());
+        sentimentScore.setText(String.valueOf(passedEvent.getSentiment()));
     }
 }

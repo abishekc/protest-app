@@ -24,13 +24,14 @@ import java.util.ArrayList;
 
 public class MyprotestsActivity extends AppCompatActivity {
 
+    final ArrayList<ProtestEvent> eventList = new ArrayList<ProtestEvent>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myprotests);
 
         final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final ArrayList<ProtestEvent> eventList = new ArrayList<ProtestEvent>();
         final DatabaseReference events = FirebaseDatabase.getInstance().getReference().child("events");
         events.addValueEventListener(new ValueEventListener() {
             @Override
@@ -38,11 +39,10 @@ public class MyprotestsActivity extends AppCompatActivity {
                 for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     ProtestEvent protestEvent = eventSnapshot.getValue(ProtestEvent.class);
                     if (protestEvent.getOwner() != null && protestEvent.getOwner().equals(userID)) {
-                        System.out.println("INNER");
                         eventList.add(protestEvent);
                     }
                 }
-                loadRecycler(eventList);
+                loadRecycler();
             }
 
             @Override
@@ -52,7 +52,7 @@ public class MyprotestsActivity extends AppCompatActivity {
         });
     }
 
-    public void loadRecycler(ArrayList<ProtestEvent> eventList) {
+    public void loadRecycler() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.protestList);
         recyclerView.setHasFixedSize(true);
 
@@ -71,28 +71,16 @@ public class MyprotestsActivity extends AppCompatActivity {
 
     public void switchToEvent(View view) {
         TextView tappedEvent = view.findViewById(R.id.eventID);
-        final String requestedEvent = tappedEvent.getText().toString();
-        final Intent intent = new Intent(this, EventItem.class);
+        String requestedEvent = tappedEvent.getText().toString();
+//        System.out.println(requestedEvent);
+        Intent intent = new Intent(this, EventItem.class);
 
-        DatabaseReference events = FirebaseDatabase.getInstance().getReference().child("events");
-        events.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
-                    ProtestEvent protestEvent = eventSnapshot.getValue(ProtestEvent.class);
-                    if (protestEvent.getId() == requestedEvent) {
-                        intent.putExtra("Event", protestEvent);
-                        System.out.println("Hit");
-                        startActivity(intent);
-                    }
-                }
+        for (ProtestEvent event: eventList) {
+            if (event.getId().equals(requestedEvent)) {
+                intent.putExtra("Event", event);
+                startActivity(intent);
+                return;
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-
+        }
     }
 }

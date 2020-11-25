@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MyprotestsActivity"></activity>
+        <activity android:name=".EventItem" />
         <activity android:name=".signup" />
         <activity android:name=".CreateNewProtest3Activity" />
         <activity android:name=".CreateNewProtest2Activity" />

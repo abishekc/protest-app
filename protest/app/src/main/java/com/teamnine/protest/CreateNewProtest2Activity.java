@@ -51,7 +51,6 @@ public class CreateNewProtest2Activity extends AppCompatActivity {
             passedEvent.setRouteDescription(routeDescription);
         }
 
-        // TODO: passedEvent to firebase
         completeFirebaseWrite(passedEvent);
 
         intent.putExtra("Event", passedEvent);

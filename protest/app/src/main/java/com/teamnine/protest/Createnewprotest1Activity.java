@@ -75,9 +75,6 @@ public class Createnewprotest1Activity extends AppCompatActivity {
 
         completeSentimentAnalysis(description, newEvent, intent);
 
-
-//       TODO: Sentiment score
-//        newEvent.setSentiment(score);
     }
 
     private void completeSentimentAnalysis(String transcript, final ProtestEvent passable, final Intent next) {
