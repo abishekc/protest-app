@@ -32,6 +32,7 @@
     <string name="enter_signup_text"> Signup</string>
     <string name="enter_username_text"> Username</string>
     <string name="enter_password_text"> Password</string>
+    <string name="my_protest_heading"> MY PROTESTS</string>
 
     <string name="protest_title">protest</string>
     <string name="full_stop">.</string>
