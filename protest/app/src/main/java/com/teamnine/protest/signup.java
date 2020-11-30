@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +48,22 @@ public class signup extends AppCompatActivity {
                 String receivedEmail = signupEmailInput.getText().toString();
                 String receivedPassword = signupPasswordInput.getText().toString();
 
-                completeSignup(receivedEmail, receivedPassword);
+                boolean emailEmpty = TextUtils.isEmpty(receivedEmail);
+                boolean passEmpty = TextUtils.isEmpty(receivedPassword);
+
+                if (emailEmpty) {
+                    signupEmailInput.setError("Username is required.");
+                    signupEmailInput.setHintTextColor(Color.parseColor("#F94F63"));
+                }
+
+                if (passEmpty) {
+                    signupPasswordInput.setError("Password is required.");
+                    signupPasswordInput.setHintTextColor(Color.parseColor("#F94F63"));
+                }
+
+                if(!emailEmpty && !passEmpty) {
+                    completeSignup(receivedEmail, receivedPassword);
+                }
             }
         });
     }
