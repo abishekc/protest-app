@@ -24,7 +24,7 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-        /* UI COMPONENTS */
+        /* UI COMPONENTS * /
         /* BUTTONS */
         Button changeLoginButton = (Button) findViewById(R.id.change_login_button);
         Button signupButton = (Button) findViewById(R.id.signup_button);

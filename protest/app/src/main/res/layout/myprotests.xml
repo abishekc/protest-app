@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/nevis_bold"
-        android:text="My Protests"
+        android:text="MY PROTESTS"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
