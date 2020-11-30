@@ -37,71 +37,72 @@
         android:id="@+id/success_protest_created_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/nevis_bold"
         android:text="@string/success_string"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="25dp"
         android:contentDescription="@string/ellipse"
         android:src="@drawable/tick_mark"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintTop_toBottomOf="@+id/success_protest_created_string" />
 
     <Button
         android:id="@+id/fb_share_btn"
         android:layout_width="309dp"
-        android:layout_height="50dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/facebook_button"
+        android:fontFamily="@font/circular_std_black"
+        android:letterSpacing="0.1"
         android:text="@string/facebook_share"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/twitter_share_btn"
         android:layout_width="309dp"
-        android:layout_height="50dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/twitter_button"
+        android:fontFamily="@font/circular_std_black"
+        android:letterSpacing="0.1"
         android:text="@string/twitter_share"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintTop_toBottomOf="@+id/fb_share_btn" />
 
     <Button
         android:id="@+id/button_3"
         android:layout_width="309dp"
-        android:layout_height="50dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/text_box"
+        android:fontFamily="@font/circular_std_black"
+        android:letterSpacing="0.1"
         android:text="@string/regular_share"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.723" />
+        app:layout_constraintTop_toBottomOf="@+id/twitter_share_btn" />
 
     <ImageView
         android:id="@+id/imageView_2"

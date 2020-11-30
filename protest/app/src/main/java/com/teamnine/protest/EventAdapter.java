@@ -28,11 +28,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public static class EventHolder extends RecyclerView.ViewHolder {
         private final TextView eventName;
         private final TextView eventID;
+        private final TextView eventLocation;
 
         public EventHolder(View view) {
             super(view);
             eventName = view.findViewById(R.id.eventName);
             eventID = view.findViewById(R.id.eventID);
+            eventLocation = view.findViewById(R.id.eventLocation);
         }
     }
 
@@ -52,6 +54,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public void onBindViewHolder(@NonNull EventAdapter.EventHolder holder, int position) {
         holder.eventName.setText(eventList.get(position).getName());
         holder.eventID.setText(eventList.get(position).getId());
+        holder.eventLocation.setText(eventList.get(position).getLocation());
     }
 
     @Override
