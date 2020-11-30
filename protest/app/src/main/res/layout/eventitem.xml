@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_reg"
         android:hint="@string/descriptionHeading"
-        android:textColor="#FFFFFF"
+        android:textColor="#aaa"
         android:textColorHint="#aaa"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"

@@ -191,44 +191,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/descriptionHeading" />
 
-    <ImageView
-        android:id="@+id/imageView_4"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="52dp"
-        android:backgroundTint="#00554040"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/next_screen_main"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginBottom="52dp"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView_2"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView_"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginBottom="52dp"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -251,12 +213,49 @@
         android:id="@+id/next_screen_two"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
-        android:scaleX="-1"
         android:backgroundTint="#FFFFFF"
+        android:scaleX="-1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline">
+
+        <ImageView
+            android:id="@+id/imageView_"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="4dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse" />
+
+        <ImageView
+            android:id="@+id/imageView_4"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="1.2dp"
+            android:layout_marginRight="4dp"
+            android:backgroundTint="#00554040"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="1.2dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

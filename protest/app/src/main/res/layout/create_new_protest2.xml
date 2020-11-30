@@ -74,55 +74,69 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.64" />
 
-    <ImageView
-        android:id="@+id/imageView_2"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
 
-    <ImageView
-        android:id="@+id/imageView_3"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toEndOf="@+id/imageView_2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="96dp"
-        android:contentDescription="@string/ellipse"
-        android:src="@drawable/ellipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView_2"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintGuide_percent="0.93917274"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/next_screen_three"
-        android:layout_width="59dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="#00FFFFFF"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
+        android:backgroundTint="#FFFFFF"
+        android:scaleX="-1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:contentDescription="@string/create_new_protest" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline">
+
+        <ImageView
+            android:id="@+id/imageView_4"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:backgroundTint="#00554040"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="1.2dp"/>
+
+        <ImageView
+            android:id="@+id/imageView_"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="1.2dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
