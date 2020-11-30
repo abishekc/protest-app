@@ -13,51 +13,31 @@
         android:id="@+id/create_new_protest_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/nevis_bold"
         android:text="@string/create_new_protest"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.331"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107" />
-
-    <TextView
-        android:id="@+id/route_string"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/circular_std_black"
-        android:text="@string/route"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/route_description_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/circular_std_black"
         android:text="@string/route_description"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/create_new_protest_string" />
 
     <EditText
         android:id="@+id/description_box"
-        android:layout_width="319dp"
+        android:layout_width="0dp"
         android:layout_height="395dp"
+        android:layout_marginTop="25dp"
         android:autofillHints=""
         android:background="@drawable/text_box"
         android:fontFamily="@font/poppins_light"
@@ -67,12 +47,9 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.64" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/route_description_string" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -104,6 +81,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:orientation="horizontal"
@@ -115,28 +93,28 @@
             android:id="@+id/imageView_4"
             android:layout_width="8dp"
             android:layout_height="8dp"
+            android:layout_marginTop="1.2dp"
+            android:layout_marginRight="4dp"
             android:backgroundTint="#00554040"
             android:contentDescription="@string/ellipse"
-            android:src="@drawable/ellipse"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="1.2dp"/>
+            android:src="@drawable/ellipse" />
 
         <ImageView
             android:id="@+id/imageView_"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:contentDescription="@string/ellipse"
-            android:src="@drawable/ellipse"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"/>
+            android:layout_marginRight="4dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:contentDescription="@string/ellipse"
-            android:src="@drawable/ellipse"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="1.2dp"/>
+            android:layout_marginTop="1.2dp"
+            android:contentDescription="@string/ellipse"
+            android:src="@drawable/ellipse" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
