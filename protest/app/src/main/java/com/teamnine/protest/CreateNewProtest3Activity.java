@@ -56,6 +56,21 @@ public class CreateNewProtest3Activity extends AppCompatActivity {
             }
         });
 
+        Button share_btn = findViewById(R.id.share_btn);
+        share_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String msg = String.format("Come and join me in the protest \"%s\"", passedEvent.name);
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, msg);
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+            }
+        });
+
         ImageButton next = findViewById(R.id.next_screen_main);
         next.setOnClickListener(new View.OnClickListener() {
             @Override

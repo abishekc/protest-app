@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fb_share_btn" />
 
     <Button
-        android:id="@+id/button_3"
+        android:id="@+id/share_btn"
         android:layout_width="309dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
