@@ -43,9 +43,7 @@
     <string name="facebook_login_protocol_scheme">fb408214960308564</string>
 
 
-
-
-<!--    create new maker strings-->
+    <!--    create new maker strings-->
     <string name="createNewMarkerHeading">CREATE NEW MARKER</string>
     <string name="exampleLocation">EX. 11th St and L St</string>
     <string name="markerTypeHeader">MARKER TYPE</string>
