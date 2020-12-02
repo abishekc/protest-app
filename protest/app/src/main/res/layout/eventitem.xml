@@ -32,26 +32,87 @@
         app:layout_constraintStart_toEndOf="@+id/protest_title" />-->
 
     <TextView
-        android:id="@+id/event_string"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:fontFamily="@font/nevis_bold"
+        android:text="protest."
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/feed_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:checked="false"
+        android:fontFamily="@font/circular_std_black"
+        android:foregroundTint="#FFFFFF"
+        android:showText="false"
+        android:text="@string/INFO"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:thumbTint="#FFFFFF"
+        app:trackTint="#F94F63"
+        tools:checked="false" />
+
+    <TextView
+        android:id="@+id/event_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/circular_std_black"
         android:text="EVENT NAME"
         android:textColor="#F94F63"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/location_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/poppins_med"
         android:hint="location placeholder"
-        android:textColorHint="#aaa"
         android:textColor="#aaa"
+        android:textColorHint="#aaa"
         android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/event_string" />
+
+    <ImageButton
+        android:id="@+id/calendar_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/calendar_icon"
+        android:scaleX="1"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/location_input" />
+
+    <ImageButton
+        android:id="@+id/sentiment_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/positive_neutral_negative"
+        android:scaleX="1"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/sentiment" />
+
+    <ImageButton
+        android:id="@+id/map_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/map_pinpoint_icon_51"
+        android:scaleX="-1"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/event_string" />
 
@@ -59,7 +120,7 @@
         android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/circular_std_black"
         android:text="DESCRIPTION"
         android:textColor="#FFFFFF"
@@ -71,7 +132,7 @@
         android:id="@+id/description_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_reg"
+        android:fontFamily="@font/poppins_med"
         android:hint="@string/descriptionHeading"
         android:textColor="#aaa"
         android:textColorHint="#aaa"
@@ -79,18 +140,19 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/description_title" />
 
+
     <TextView
         android:id="@+id/start_date_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
         android:fontFamily="@font/poppins_med"
         android:hint="@string/datesHeading"
-        android:textColorHint="#aaa"
         android:textColor="#FFFFFF"
+        android:textColorHint="#aaa"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/location_input" />
-
 
     <TextView
         android:id="@+id/end_date_input"
@@ -110,6 +172,8 @@
         android:id="@+id/sentiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins_med"
         android:text="SENTIMENT"
         android:textColor="#FFFFFF"
@@ -121,13 +185,82 @@
         android:id="@+id/pinned_messages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/circular_std_black"
         android:text="PINNED MESSAGES"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pinned_messages_List"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/placeholder"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/pinned_messages"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="196dp"
+        android:fontFamily="@font/circular_std_black"
+        android:text="AID &amp; WATER STATIONS"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/aid_water_stations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/circular_std_black"
+        android:text="AID &amp; WATER STATIONS"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/pinned_messages_List" />
+
+    <Button
+        android:id="@+id/share_btn"
+        android:layout_width="309dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/text_box"
+        android:fontFamily="@font/poppins_med"
+        android:letterSpacing="0.1"
+        android:text="LIST OF AID &amp; WATER STATIONS"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/aid_water_stations" />
+
+    <Button
+        android:id="@+id/share_btn2"
+        android:layout_width="309dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/text_box"
+        android:fontFamily="@font/poppins_med"
+        android:letterSpacing="0.1"
+        android:text="CREATE NEW MARKER"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/share_btn" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -232,33 +365,4 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.591" />-->
-
-    <!--<TextView
-        android:id="@+id/textView"
-        android:layout_width="413dp"
-        android:layout_height="60dp"
-        android:background="@drawable/topbar"
-        android:gravity="center"
-        android:textColor="#311344"
-        android:textSize="64sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <TextView
-        android:id="@+id/textView_2"
-        android:layout_width="413dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="@string/INFO"
-        android:textColor="#F94F63"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
