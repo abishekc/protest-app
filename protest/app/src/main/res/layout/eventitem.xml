@@ -280,6 +280,14 @@
         app:layout_constraintGuide_percent="0.93917274"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/feed_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feed"
+        app:layout_constraintBottom_toTopOf="@+id/share_btn"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+
     <!--<ImageView
     android:id="@+id/imageView"
     android:layout_width="319dp"
