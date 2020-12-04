@@ -3,6 +3,8 @@ package com.teamnine.protest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,7 +18,7 @@ public class EventItem extends AppCompatActivity {
         setContentView(R.layout.eventitem);
 
         Intent intent = getIntent();
-        ProtestEvent passedEvent = intent.getParcelableExtra("Event");
+        final ProtestEvent passedEvent = intent.getParcelableExtra("Event");
 
         TextView eventName = findViewById(R.id.event_string);
         TextView eventLocation = findViewById(R.id.location_input);
@@ -31,5 +33,20 @@ public class EventItem extends AppCompatActivity {
         eventEndDate.setText(passedEvent.getEndDate());
         eventDescription.setText(passedEvent.getDescription());
         sentimentScore.setText(String.valueOf(passedEvent.getSentiment()));
+
+        Button feed_button = findViewById(R.id.feed_button);
+        feed_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                feedInterface(passedEvent);
+            }
+        });
+
+    }
+
+    public void feedInterface(ProtestEvent event) {
+        Intent intent = new Intent(this, EventFeed.class);
+        intent.putExtra("Event", event);
+        startActivity(intent);
     }
 }
