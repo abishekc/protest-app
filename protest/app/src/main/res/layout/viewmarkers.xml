@@ -37,6 +37,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
         android:backgroundTint="@android:color/white"
+        android:onClick="switchToEvent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

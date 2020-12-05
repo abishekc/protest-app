@@ -52,7 +52,6 @@ public class CreateNewProtest2Activity extends AppCompatActivity {
         }
 
         completeFirebaseWrite(passedEvent);
-        passedEvent.addPin(new MapPin("a", "b", "c"));
 
         intent.putExtra("Event", passedEvent);
         startActivity(intent);

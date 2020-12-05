@@ -63,6 +63,11 @@ public class ViewmarkersActivity extends AppCompatActivity {
         typeBox.setText(selectedPin.getType());
         locationBox.setText(selectedPin.getAddr());
         descriptionBox.setText(selectedPin.getDescription());
+    }
 
+    public void switchToEvent(View view) {
+        Intent intent = new Intent(this, EventItem.class);
+        intent.putExtra("Event", currEvent);
+        startActivity(intent);
     }
 }
