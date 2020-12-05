@@ -27,6 +27,11 @@ public class ViewmarkersActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ProtestEvent event = intent.getParcelableExtra("Event");
         currEvent = event;
+
+        System.out.println("SDFLKJSDFLKSJDF");
+        System.out.println(event);
+        System.out.println(event.getPinList());
+
         ArrayList<MapPin> pinList = currEvent.getPinList();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.otherMarkers);
@@ -56,8 +61,8 @@ public class ViewmarkersActivity extends AppCompatActivity {
         TextView descriptionBox = (TextView) findViewById(R.id.markerDescription);
 
         typeBox.setText(selectedPin.getType());
-        typeBox.setText(selectedPin.getAddr());
-        typeBox.setText(selectedPin.getDescription());
+        locationBox.setText(selectedPin.getAddr());
+        descriptionBox.setText(selectedPin.getDescription());
 
     }
 }

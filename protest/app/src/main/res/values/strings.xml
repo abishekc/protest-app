@@ -56,4 +56,7 @@
         <item>AID STATION</item>
         <item>WATER STATION</item>
     </string-array>
+
+<!--    edit existing event strings -->
+    <string name="editEventHeading">EDIT EVENT</string>
 </resources>

@@ -119,7 +119,9 @@ public class ProtestEvent implements Parcelable {
         route = in.readString();
         routeDescription = in.readString();
         sentiment = in.readInt();
-        in.readTypedList(pinList, MapPin.CREATOR);
+        ArrayList newPinList = new ArrayList<MapPin>();
+        in.readTypedList(newPinList, MapPin.CREATOR);
+        pinList = newPinList;
     }
 
     public static final Creator<ProtestEvent> CREATOR = new Creator<ProtestEvent>() {

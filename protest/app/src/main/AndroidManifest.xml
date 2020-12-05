@@ -14,6 +14,7 @@
         <activity android:name=".EventFeed"></activity>
         <activity android:name=".ViewmarkersActivity" />
         <activity android:name=".createNewMarker" />
+        <activity android:name=".EditEventActivity" />
         <activity android:name=".MyprotestsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

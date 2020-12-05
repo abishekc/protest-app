@@ -80,4 +80,10 @@ public class EventItem extends AppCompatActivity {
         intent.putExtra("Event", currEvent);
         startActivity(intent);
     }
+
+    public void updateEvent (View view) {
+        Intent intent = new Intent(this, EditEventActivity.class);
+        intent.putExtra("Event", currEvent);
+        startActivity(intent);
+    }
 }
