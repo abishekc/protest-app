@@ -31,20 +31,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/protest_title"
         app:layout_constraintStart_toEndOf="@+id/protest_title" />-->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/nevis_bold"
-        android:text="protest."
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.SwitchCompat
+    <!--<androidx.appcompat.widget.SwitchCompat
         android:id="@+id/feed_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,67 +47,116 @@
         app:layout_constraintTop_toTopOf="parent"
         app:thumbTint="#FFFFFF"
         app:trackTint="#F94F63"
-        tools:checked="false" />
+        tools:checked="false" />-->
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
+        android:backgroundTint="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/edit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT"
+        android:textSize="15sp"
+        android:textColor="#fff"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/circular_std_black"
+        app:layout_constraintTop_toTopOf="@id/edit_button"
+        app:layout_constraintEnd_toStartOf="@id/edit_button"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/edit_button"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        app:layout_constraintTop_toTopOf="@id/back_button"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@drawable/round_create_white_48dp"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/event_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/circular_std_black"
         android:text="EVENT NAME"
         android:textColor="#F94F63"
-        android:textSize="28sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/back_button" />
+
 
     <TextView
         android:id="@+id/location_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_med"
         android:hint="location placeholder"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
+        android:textColor="#ddd"
+        android:textColorHint="#ddd"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/map_icon"
         app:layout_constraintTop_toBottomOf="@+id/event_string" />
 
     <ImageButton
         android:id="@+id/calendar_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/calendar_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/baseline_event_white_48dp"
         android:scaleX="1"
+        android:backgroundTint="#ddd"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/location_input" />
+        app:layout_constraintTop_toTopOf="@+id/start_date_input" />
 
     <ImageButton
         android:id="@+id/sentiment_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/positive_neutral_negative"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/round_emoji_emotions_white_48dp"
+        android:backgroundTint="#ddd"
         android:scaleX="1"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/sentiment" />
 
     <ImageButton
         android:id="@+id/map_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/map_pinpoint_icon_51"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/baseline_public_white_48dp"
+        android:backgroundTint="#ddd"
         android:scaleX="-1"
+        android:tint="#ddd"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/event_string" />
+        app:layout_constraintTop_toTopOf="@+id/location_input" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/sentiment"
+        android:layout_marginTop="15.5dp"
+        android:background="#222"/>
 
     <TextView
         android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/circular_std_black"
         android:text="DESCRIPTION"
         android:textColor="#FFFFFF"
@@ -145,13 +181,14 @@
         android:id="@+id/start_date_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/poppins_med"
         android:hint="@string/datesHeading"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#aaa"
+        android:textColor="#ddd"
+        android:textColorHint="#ddd"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/calendar_icon"
         app:layout_constraintTop_toBottomOf="@+id/location_input" />
 
     <TextView
@@ -162,7 +199,7 @@
         android:fontFamily="@font/poppins_med"
         android:hint="@string/datesHeading"
         android:textColorHint="#aaa"
-        android:textColor="#FFFFFF"
+        android:textColor="#ddd"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/start_date_input"
         app:layout_constraintStart_toEndOf="@+id/start_date_input" />
@@ -172,63 +209,70 @@
         android:id="@+id/sentiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/poppins_med"
         android:text="SENTIMENT"
-        android:textColor="#FFFFFF"
+        android:textColor="#ddd"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/sentiment_icon"
         app:layout_constraintTop_toBottomOf="@+id/start_date_input" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/description_input"
+        android:layout_marginTop="15.5dp"
+        android:background="#222"/>
 
     <TextView
         android:id="@+id/pinned_messages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/circular_std_black"
-        android:text="PINNED MESSAGES"
+        android:text="LATEST UPDATE"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pinned_messages_List"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@id/placeholder"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/pinned_messages"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
-        android:id="@+id/placeholder"
-        android:layout_width="wrap_content"
+        android:id="@+id/update_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="196dp"
-        android:fontFamily="@font/circular_std_black"
-        android:text="AID &amp; WATER STATIONS"
-        android:textColor="#000000"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        android:text="No updates so far."
+        android:background="@drawable/text_box"
+        android:textColor="#ddd"
+        android:fontFamily="@font/poppins_med"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/pinned_messages"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="17dp"
+        android:background="#222"
+        app:layout_constraintTop_toBottomOf="@id/update_text" />
 
     <TextView
         android:id="@+id/aid_water_stations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="37dp"
         android:fontFamily="@font/circular_std_black"
         android:text="AID &amp; WATER STATIONS"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/pinned_messages_List" />
+        app:layout_constraintTop_toBottomOf="@+id/update_text" />
 
     <Button
         android:id="@+id/share_btn"
@@ -285,10 +329,15 @@
     <Button
         android:id="@+id/feed_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feed"
-        app:layout_constraintBottom_toTopOf="@+id/share_btn"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+        android:layout_height="20dp"
+        android:background="#000"
+        android:fontFamily="@font/circular_std_black"
+        android:text="SEE ALL UPDATES"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:layout_marginRight="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@id/pinned_messages" />
 
     <!--<ImageView
     android:id="@+id/imageView"

@@ -7,30 +7,52 @@
     android:background="#000000"
     tools:context=".EventFeed">
 
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
+        android:backgroundTint="@android:color/white"/>
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/add_update_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/nevis_bold"
-        android:text="protest."
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="ADD"
+        android:textSize="15sp"
+        android:textColor="#fff"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/circular_std_black"
+        app:layout_constraintTop_toTopOf="@id/add_update_button"
+        app:layout_constraintEnd_toStartOf="@id/add_update_button"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/add_update_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/baseline_add_white_48dp"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/event_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/circular_std_black"
         android:text="EVENT NAME"
-        android:textColor="#03DAC5"
-        android:textSize="28sp"
+        android:textColor="#F94F63"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/back_button" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/feedList"
@@ -41,22 +63,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/event_string" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/info_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/poppins_bold"
-        android:showText="false"
-        android:text="@string/feed_string"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:thumbTint="#FFFFFF"
-        app:trackTint="#03DAC5"
-        tools:checked="true" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
