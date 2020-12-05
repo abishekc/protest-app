@@ -41,4 +41,5 @@ dependencies {
     compile 'com.google.apis:google-api-services-speech:v1beta1-rev336-1.22.0'
     compile 'com.google.apis:google-api-services-language:v1beta2-rev6-1.22.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
 }

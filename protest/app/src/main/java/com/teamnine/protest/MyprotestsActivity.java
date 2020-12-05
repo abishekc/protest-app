@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,15 +39,18 @@ public class MyprotestsActivity extends AppCompatActivity {
 
         final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference events = FirebaseDatabase.getInstance().getReference().child("events");
+
+        /* UI COMPONENTS */
+        /* BUTTONS */
+        ImageButton createEvent = (ImageButton) findViewById(R.id.add_new_event_button);
+
         events.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     ProtestEvent protestEvent = eventSnapshot.getValue(ProtestEvent.class);
-                    if (protestEvent.getOwner() != null && protestEvent.getOwner().equals(userID)) {
                         eventList.add(protestEvent);
                         Log.e("TEST", protestEvent.getName());
-                    }
                 }
                 loadRecycler();
             }
@@ -53,6 +58,14 @@ public class MyprotestsActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), Createnewprotest1Activity.class);
+                startActivity(i);
             }
         });
     }

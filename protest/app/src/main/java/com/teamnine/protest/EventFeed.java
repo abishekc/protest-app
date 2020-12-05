@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 
@@ -21,6 +25,9 @@ public class EventFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_feed);
 
+        TextView addTitle = findViewById(R.id.add_update_title);
+        ImageButton addButton = (ImageButton) findViewById(R.id.add_update_button);
+
         Intent intent = getIntent();
         ProtestEvent passedEvent = intent.getParcelableExtra("Event");
 
@@ -31,6 +38,22 @@ public class EventFeed extends AppCompatActivity {
 
         loadRecycler();
 
+        String currentID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if (currentID != null) {
+            if (currentID.equals(passedEvent.getOwner())) {
+                addTitle.setVisibility(View.VISIBLE);
+                addButton.setVisibility(View.VISIBLE);
+            }
+        }
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddBottomSheet bottomSheet = new AddBottomSheet();
+                bottomSheet.show(getSupportFragmentManager(),
+                        "ModalBottomSheet");
+            }
+        });
     }
 
     //This function should return a list of ProtestFeeds that are found in the database corresponding to the event

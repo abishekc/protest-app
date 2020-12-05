@@ -14,20 +14,20 @@
         <activity android:name=".EventFeed"></activity>
         <activity android:name=".ViewmarkersActivity" />
         <activity android:name=".createNewMarker" />
-        <activity android:name=".MyprotestsActivity" />
-        <activity android:name=".EventItem" />
-        <activity android:name=".signup" />
-        <activity android:name=".CreateNewProtest3Activity" />
-        <activity android:name=".CreateNewProtest2Activity" />
-        <activity android:name=".login" />
-        <activity android:name=".Createnewprotest1Activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MyprotestsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EventItem" />
+        <activity android:name=".signup" />
+        <activity android:name=".CreateNewProtest3Activity" />
+        <activity android:name=".CreateNewProtest2Activity" />
+        <activity android:name=".login" />
+        <activity android:name=".Createnewprotest1Activity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
