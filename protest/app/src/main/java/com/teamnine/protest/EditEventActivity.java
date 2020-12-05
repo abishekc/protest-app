@@ -2,6 +2,7 @@ package com.teamnine.protest;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,7 +18,7 @@ public class EditEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viewmarkers);
+        setContentView(R.layout.edit_event);
 
         Intent intent = getIntent();
         ProtestEvent event = intent.getParcelableExtra("Event");
@@ -32,6 +33,7 @@ public class EditEventActivity extends AppCompatActivity {
         EditText endDateBox = (EditText) findViewById(R.id.edit_Date2);
         EditText descriptionBox = (EditText) findViewById(R.id.edit_Description);
 
+        Log.e("NOT ERROR", currEvent.getName());
         nameBox.setText(currEvent.getName());
         locationBox.setText(currEvent.getLocation());
         startDateBox.setText(currEvent.getStartDate());
