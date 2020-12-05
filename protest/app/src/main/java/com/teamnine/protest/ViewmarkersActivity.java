@@ -59,7 +59,8 @@ public class ViewmarkersActivity extends AppCompatActivity {
         TextView typeBox = (TextView) findViewById(R.id.markerType);
         TextView locationBox = (TextView) findViewById(R.id.markerLocation);
         TextView descriptionBox = (TextView) findViewById(R.id.markerDescription);
-
+        System.out.println("DFLSJDFLSKJD");
+        System.out.println(selectedPin.getAddr());
         typeBox.setText(selectedPin.getType());
         locationBox.setText(selectedPin.getAddr());
         descriptionBox.setText(selectedPin.getDescription());
