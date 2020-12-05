@@ -70,8 +70,6 @@ public class EditEventActivity extends AppCompatActivity {
     }
 
     public void cancelUpdate (View view) {
-        Intent intent = new Intent(this, EventItem.class);
-        intent.putExtra("Event", currEvent);
-        startActivity(intent);
+        finish();
     }
 }
