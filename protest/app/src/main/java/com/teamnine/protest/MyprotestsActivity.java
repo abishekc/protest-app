@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,6 +37,15 @@ public class MyprotestsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myprotests);
+
+        FirebaseUser mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (mCurrentUser == null) {
+            Intent i = new Intent(this, login.class);
+            startActivity(i);
+            finish();
+        } else {
+            Log.i("SUCCESS", "User is already logged in, UUID is: " + FirebaseAuth.getInstance().getCurrentUser().getUid());
+        }
 
         final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference events = FirebaseDatabase.getInstance().getReference().child("events");
