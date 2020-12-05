@@ -164,6 +164,7 @@
         android:layout_height="75dp"
         android:backgroundTint="#50EFA3"
         android:fontFamily="@font/nevis_bold"
+        android:onClick="createNewMarker"
         android:text="@string/post"
         app:layout_constraintBaseline_toBaselineOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent" />

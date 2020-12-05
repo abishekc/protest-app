@@ -51,4 +51,9 @@
     <string name="cancel">CANCEL</string>
     <string name="post">POST</string>
     <string name="feed_string">FEED</string>
+
+    <string-array name="markerTypes">
+        <item>AID STATION</item>
+        <item>WATER STATION</item>
+    </string-array>
 </resources>

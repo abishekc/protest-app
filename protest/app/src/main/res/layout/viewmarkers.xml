@@ -9,7 +9,7 @@
     tools:context=".ViewmarkersActivity">
 
     <EditText
-        android:id="@+id/map"
+        android:id="@+id/markerDescription"
         android:layout_width="0dp"
         android:layout_height="397dp"
         android:layout_marginStart="24dp"
@@ -46,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/nevis_bold"
-        android:text="AID STATION"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map" />
+        app:layout_constraintTop_toBottomOf="@+id/markerDescription" />
 
     <TextView
         android:id="@+id/markerLocation"
@@ -74,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/nevis_bold"
-        android:text="15th St and G St"
+        android:text="No Pin Selected"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,6 +99,7 @@
         android:layout_width="48dp"
         android:layout_height="46dp"
         android:background="@drawable/text_box"
+        android:onClick="switchToCreateMarker"
         app:layout_constraintBottom_toTopOf="@+id/markerLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.925"

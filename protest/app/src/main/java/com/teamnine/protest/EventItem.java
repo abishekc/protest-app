@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EventItem extends AppCompatActivity {
 
+    ProtestEvent currEvent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public class EventItem extends AppCompatActivity {
 
         Intent intent = getIntent();
         final ProtestEvent passedEvent = intent.getParcelableExtra("Event");
+        currEvent = passedEvent;
 
         TextView eventName = findViewById(R.id.event_string);
         TextView eventLocation = findViewById(R.id.location_input);
@@ -47,6 +50,18 @@ public class EventItem extends AppCompatActivity {
     public void feedInterface(ProtestEvent event) {
         Intent intent = new Intent(this, EventFeed.class);
         intent.putExtra("Event", event);
+        startActivity(intent);
+    }
+
+    public void switchToPins (View view) {
+        Intent intent = new Intent(this, ViewmarkersActivity.class);
+        intent.putExtra("Event", currEvent);
+        startActivity(intent);
+    }
+
+    public void switchToCreatePin (View view) {
+        Intent intent = new Intent(this, createNewMarker.class);
+        intent.putExtra("Event", currEvent);
         startActivity(intent);
     }
 }

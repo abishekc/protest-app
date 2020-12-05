@@ -3,6 +3,7 @@ package com.teamnine.protest;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ProtestEvent implements Parcelable {
@@ -17,6 +18,7 @@ public class ProtestEvent implements Parcelable {
 //    For later use
     String route = null;
     String routeDescription = null;
+    ArrayList<MapPin> pinList;
 
     public ProtestEvent() {}
 
@@ -28,6 +30,7 @@ public class ProtestEvent implements Parcelable {
         this.endDate = endDate;
         this.description = description;
         this.owner = owner;
+        this.pinList = new ArrayList<MapPin>();
     }
 
     /* SETTERS AND GETTERS START */
@@ -100,6 +103,9 @@ public class ProtestEvent implements Parcelable {
     public void setRouteDescription(String routeDescription) {
         this.routeDescription = routeDescription;
     }
+
+    public ArrayList<MapPin> getPinList() { return pinList; }
+    public void setPinList(ArrayList<MapPin> pinList) { this.pinList = pinList; }
     /* SETTERS AND GETTERS END*/
 
     protected ProtestEvent(Parcel in) {
@@ -113,6 +119,7 @@ public class ProtestEvent implements Parcelable {
         route = in.readString();
         routeDescription = in.readString();
         sentiment = in.readInt();
+        in.readTypedList(pinList, MapPin.CREATOR);
     }
 
     public static final Creator<ProtestEvent> CREATOR = new Creator<ProtestEvent>() {
@@ -144,5 +151,10 @@ public class ProtestEvent implements Parcelable {
         parcel.writeString(route);
         parcel.writeString(routeDescription);
         parcel.writeInt(sentiment);
+        parcel.writeTypedList(pinList);
+    }
+
+    public void addPin (MapPin newPin) {
+        this.pinList.add(newPin);
     }
 }
