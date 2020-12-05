@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class createNewMarker extends AppCompatActivity {
 
     ProtestEvent currEvent;
@@ -42,9 +45,11 @@ public class createNewMarker extends AppCompatActivity {
         currEvent.addPin(newPin);
 
         //TODO Add to feed?
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
 
         Intent intent = new Intent(this, ViewmarkersActivity.class);
-        intent.putExtra("Extra", currEvent);
+        intent.putExtra("Event", currEvent);
         startActivity(intent);
     }
 }

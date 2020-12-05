@@ -8,6 +8,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class EditEventActivity extends AppCompatActivity {
@@ -59,8 +61,8 @@ public class EditEventActivity extends AppCompatActivity {
         currEvent.setStartDate(startDate);
         currEvent.setEndDate(endDate);
 
-        String userID= FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        TODO: UPDATE DATABASE
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
 
         Intent intent = new Intent(this, EventItem.class);
         intent.putExtra("Event", currEvent);
