@@ -75,7 +75,7 @@ public class login extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Log.i("SUCCESS", "Login has been completed succesfully, intent to MainActivity.");
 
-                        Intent i = new Intent(getBaseContext(), MainActivity.class);
+                        Intent i = new Intent(getBaseContext(), MyprotestsActivity.class);
                         startActivity(i);
                         finish();
                     } else {

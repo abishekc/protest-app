@@ -26,11 +26,11 @@ public class EditEventActivity extends AppCompatActivity {
         System.out.println("DFODIFSDKNSDFOSDF");
         System.out.println(currEvent.getName());
 
-        EditText nameBox = (EditText) findViewById(R.id.name_input);
-        EditText locationBox = (EditText) findViewById(R.id.location_input);
-        EditText startDateBox = (EditText) findViewById(R.id.enterDate1);
-        EditText endDateBox = (EditText) findViewById(R.id.enterDate2);
-        EditText descriptionBox = (EditText) findViewById(R.id.enterDescription);
+        EditText nameBox = (EditText) findViewById(R.id.edit_name_input);
+        EditText locationBox = (EditText) findViewById(R.id.edit_location_input);
+        EditText startDateBox = (EditText) findViewById(R.id.edit_Date1);
+        EditText endDateBox = (EditText) findViewById(R.id.edit_Date2);
+        EditText descriptionBox = (EditText) findViewById(R.id.edit_Description);
 
         nameBox.setText(currEvent.getName());
         locationBox.setText(currEvent.getLocation());
@@ -41,11 +41,11 @@ public class EditEventActivity extends AppCompatActivity {
     }
 
     public void updateEvent (View view) {
-        EditText nameBox = (EditText) findViewById(R.id.name_input);
-        EditText locationBox = (EditText) findViewById(R.id.location_input);
-        EditText startDateBox = (EditText) findViewById(R.id.enterDate1);
-        EditText endDateBox = (EditText) findViewById(R.id.enterDate2);
-        EditText descriptionBox = (EditText) findViewById(R.id.enterDescription);
+        EditText nameBox = (EditText) findViewById(R.id.edit_name_input);
+        EditText locationBox = (EditText) findViewById(R.id.edit_location_input);
+        EditText startDateBox = (EditText) findViewById(R.id.edit_Date1);
+        EditText endDateBox = (EditText) findViewById(R.id.edit_Date2);
+        EditText descriptionBox = (EditText) findViewById(R.id.edit_Description);
 
         String name = nameBox.getText().toString();
         String location = locationBox.getText().toString();

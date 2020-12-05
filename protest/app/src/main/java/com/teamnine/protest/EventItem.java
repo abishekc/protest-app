@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class EventItem extends AppCompatActivity {
 
-    ProtestEvent currEvent;
+    private ProtestEvent currEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,24 @@ public class EventItem extends AppCompatActivity {
                 editButton.setVisibility(View.VISIBLE);
             }
         }
+
+        editTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), EditEventActivity.class);
+                intent.putExtra("Event", passedEvent);
+                startActivity(intent);
+            }
+        });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), EditEventActivity.class);
+                intent.putExtra("Event", passedEvent);
+                startActivity(intent);
+            }
+        });
 
     }
 

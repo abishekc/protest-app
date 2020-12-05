@@ -79,7 +79,7 @@ public class signup extends AppCompatActivity {
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                     mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue("signup_complete");
 
-                    Intent i = new Intent(getBaseContext(), MainActivity.class);
+                    Intent i = new Intent(getBaseContext(), MyprotestsActivity.class);
                     startActivity(i);
                     finish();
                 } else {
