@@ -150,6 +150,7 @@
         android:layout_marginBottom="4dp"
         android:backgroundTint="#FA8B8B"
         android:fontFamily="@font/nevis_bold"
+        android:onClick="cancelCreate"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/post"
@@ -165,7 +166,7 @@
         android:backgroundTint="#50EFA3"
         android:fontFamily="@font/nevis_bold"
         android:onClick="createNewMarker"
-        android:text="@string/post"
+        android:text="CREATE"
         app:layout_constraintBaseline_toBaselineOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -175,6 +176,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/text_box"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
@@ -186,6 +188,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/text_box"
+        android:onClick="getCurrLoc"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintTop_toBottomOf="@+id/LocationHeader"
         app:srcCompat="@android:drawable/ic_menu_mylocation" />

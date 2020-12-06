@@ -8,6 +8,8 @@ public class MapPin implements Parcelable {
     String type;
     String addr;
     String description;
+    double lon;
+    double lat;
 
     public MapPin(String type, String addr, String description) {
         this.type = type;
@@ -41,10 +43,20 @@ public class MapPin implements Parcelable {
         this.description = description;
     }
 
+    public double getLon() { return lon; }
+
+    public void setLon(double lon) { this.lon = lon; }
+
+    public double getLat() { return lat; }
+
+    public void setLat(double lat) { this.lat = lat; }
+
     protected MapPin(Parcel in) {
         type = in.readString();
         addr = in.readString();
         description = in.readString();
+        lon = in.readDouble();
+        lat = in.readDouble();
     }
 
     public static final Parcelable.Creator<MapPin> CREATOR = new Creator<MapPin>() {
@@ -69,5 +81,7 @@ public class MapPin implements Parcelable {
         parcel.writeString(type);
         parcel.writeString(addr);
         parcel.writeString(description);
+        parcel.writeDouble(lon);
+        parcel.writeDouble(lat);
     }
 }

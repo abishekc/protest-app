@@ -214,7 +214,7 @@
         android:backgroundTint="#50EFA3"
         android:fontFamily="@font/nevis_bold"
         android:onClick="updateEvent"
-        android:text="@string/post"
+        android:text="Update"
         app:layout_constraintBaseline_toBaselineOf="@+id/cancelUpdate"
         app:layout_constraintEnd_toEndOf="parent" />
 

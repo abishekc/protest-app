@@ -9,7 +9,6 @@
     tools:context=".ViewmarkersActivity">
 
     <EditText
-        android:visibility="invisible"
         android:id="@+id/markerDescription"
         android:layout_width="0dp"
         android:layout_height="397dp"
@@ -25,6 +24,7 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="15sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
