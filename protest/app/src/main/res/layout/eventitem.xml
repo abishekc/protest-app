@@ -279,12 +279,25 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/add_new_update_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#50EFA3"
+        android:fontFamily="@font/nevis_bold"
+        android:text="ADD UPDATE"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/update_linear_layout"
+        android:visibility="gone"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="17dp"
         android:background="#222"
-        app:layout_constraintTop_toBottomOf="@id/update_linear_layout" />
+        app:layout_constraintTop_toBottomOf="@id/add_new_update_button" />
 
     <TextView
         android:id="@+id/aid_water_stations"
@@ -296,7 +309,7 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/update_linear_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/add_new_update_button" />
 
     <Button
         android:id="@+id/share_btn"

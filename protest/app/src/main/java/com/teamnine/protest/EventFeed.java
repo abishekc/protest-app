@@ -36,6 +36,7 @@ public class EventFeed extends AppCompatActivity {
 
         Intent intent = getIntent();
         final ProtestEvent passedEvent = intent.getParcelableExtra("Event");
+        final Boolean add_flag = intent.getBooleanExtra("add_flag", false);
 
         feedEvent = passedEvent;
 
@@ -52,16 +53,24 @@ public class EventFeed extends AppCompatActivity {
             }
         }
 
+        if (add_flag) {
+            setupBottomModal(passedEvent);
+        }
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddBottomSheet bottomSheet = new AddBottomSheet();
-                bottomSheet.setPassedEventId(passedEvent.getId());
-                bottomSheet.show(getSupportFragmentManager(),
-                        "ModalBottomSheet");
-                findFeedsByEvent();
+                setupBottomModal(passedEvent);
             }
         });
+    }
+
+    public void setupBottomModal(ProtestEvent passedEvent) {
+        AddBottomSheet bottomSheet = new AddBottomSheet();
+        bottomSheet.setPassedEventId(passedEvent.getId());
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
+        findFeedsByEvent();
     }
 
     //This function should return a list of ProtestFeeds that are found in the database corresponding to the event

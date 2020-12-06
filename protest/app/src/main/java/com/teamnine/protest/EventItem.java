@@ -104,7 +104,15 @@ public class EventItem extends AppCompatActivity {
         feed_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                feedInterface(passedEvent);
+                feedInterface(passedEvent, false);
+            }
+        });
+
+        Button add_update_button = findViewById(R.id.add_new_update_button);
+        add_update_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                feedInterface(passedEvent, true);
             }
         });
 
@@ -113,6 +121,7 @@ public class EventItem extends AppCompatActivity {
             if (currentID.equals(passedEvent.getOwner())) {
                 editTitle.setVisibility(View.VISIBLE);
                 editButton.setVisibility(View.VISIBLE);
+                add_update_button.setVisibility(View.VISIBLE);
             }
         }
 
@@ -136,9 +145,10 @@ public class EventItem extends AppCompatActivity {
 
     }
 
-    public void feedInterface(ProtestEvent event) {
+    public void feedInterface(ProtestEvent event, Boolean add_flag) {
         Intent intent = new Intent(this, EventFeed.class);
         intent.putExtra("Event", event);
+        intent.putExtra("add_flag", add_flag);
         startActivity(intent);
     }
 
