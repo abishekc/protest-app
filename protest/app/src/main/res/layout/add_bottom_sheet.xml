@@ -16,6 +16,7 @@
         android:textSize="15sp" />
 
     <EditText
+        android:id="@+id/update_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minLines="2"
@@ -28,5 +29,12 @@
         android:textColor="#aaa"
         android:padding="0dp"
         android:background="#27252F"/>
+
+    <ImageButton
+        android:id="@+id/finish_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
+        android:backgroundTint="#fff"/>
 
 </LinearLayout>
