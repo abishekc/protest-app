@@ -11,14 +11,20 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 
 public class EventFeed extends AppCompatActivity {
     private ArrayList<ProtestFeed> feedList = new ArrayList<ProtestFeed>();
+    private ProtestEvent feedEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +35,15 @@ public class EventFeed extends AppCompatActivity {
         ImageButton addButton = (ImageButton) findViewById(R.id.add_update_button);
 
         Intent intent = getIntent();
-        ProtestEvent passedEvent = intent.getParcelableExtra("Event");
+        final ProtestEvent passedEvent = intent.getParcelableExtra("Event");
+        final Boolean add_flag = intent.getBooleanExtra("add_flag", false);
+
+        feedEvent = passedEvent;
 
         TextView EventName = findViewById(R.id.event_string);
         EventName.setText(passedEvent.name);
 
-        feedList = findFeedsByEvent(passedEvent);
-
-        loadRecycler();
+        findFeedsByEvent();
 
         String currentID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if (currentID != null) {
@@ -46,24 +53,54 @@ public class EventFeed extends AppCompatActivity {
             }
         }
 
+        if (add_flag) {
+            setupBottomModal(passedEvent);
+        }
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddBottomSheet bottomSheet = new AddBottomSheet();
-                bottomSheet.show(getSupportFragmentManager(),
-                        "ModalBottomSheet");
+                setupBottomModal(passedEvent);
             }
         });
     }
 
+    public void setupBottomModal(ProtestEvent passedEvent) {
+        AddBottomSheet bottomSheet = new AddBottomSheet();
+        bottomSheet.setPassedEventId(passedEvent.getId());
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
+        findFeedsByEvent();
+    }
+
     //This function should return a list of ProtestFeeds that are found in the database corresponding to the event
-    public ArrayList<ProtestFeed> findFeedsByEvent(ProtestEvent event){
+    public void findFeedsByEvent(){
         //TODO: Implement the actual database access and return the actual list
-        ArrayList<ProtestFeed> ret = new ArrayList<ProtestFeed>();
-        ret.add(new ProtestFeed("1","1","This is a fake feed 1","1"));
-        ret.add(new ProtestFeed("2","1","Another fake feed","2"));
-        ret.add(new ProtestFeed("3","1","One more!","3"));
-        return ret;
+        final ArrayList<ProtestFeed> ret = new ArrayList<ProtestFeed>();
+
+        final DatabaseReference updates = FirebaseDatabase.getInstance().getReference().child("updates");
+        updates.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ret.clear();
+                feedList.clear();
+
+                for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
+                    ProtestFeed protestFeed = eventSnapshot.getValue(ProtestFeed.class);
+                    if (protestFeed.getEvent_id().equals(feedEvent.getId())) {
+                        ret.add(protestFeed);
+                    }
+                }
+                Collections.reverse(ret);
+                feedList = ret;
+                loadRecycler();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     };
 
     public void loadRecycler() {

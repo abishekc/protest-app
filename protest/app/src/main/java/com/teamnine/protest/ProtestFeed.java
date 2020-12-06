@@ -8,14 +8,16 @@ public class ProtestFeed implements Parcelable {
     String event_id;
     String description;
     String owner;
+    String time;
 
     public ProtestFeed() {}
 
-    public ProtestFeed(String id, String event_id, String description, String owner) {
+    public ProtestFeed(String id, String event_id, String description, String owner, String time) {
         this.id = id;
         this.event_id = event_id;
         this.description = description;
         this.owner = owner;
+        this.time = time;
     }
 
     /* SETTERS AND GETTERS START */
@@ -46,6 +48,15 @@ public class ProtestFeed implements Parcelable {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     /* SETTERS AND GETTERS END*/
 
     protected ProtestFeed(Parcel in) {
@@ -53,6 +64,7 @@ public class ProtestFeed implements Parcelable {
         event_id = in.readString();
         description = in.readString();
         owner = in.readString();
+        time = in.readString();
     }
 
     public static final Creator<ProtestFeed> CREATOR = new Creator<ProtestFeed>() {
@@ -78,6 +90,6 @@ public class ProtestFeed implements Parcelable {
         parcel.writeString(event_id);
         parcel.writeString(description);
         parcel.writeString(owner);
-
+        parcel.writeString(time);
     }
 }

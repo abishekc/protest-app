@@ -14,6 +14,7 @@ public class ProtestEvent implements Parcelable {
     String endDate;
     String description;
     String owner;
+    String latest_update = "";
     int sentiment;
 //    For later use
     String route = null;
@@ -83,6 +84,14 @@ public class ProtestEvent implements Parcelable {
         this.owner = owner;
     }
 
+    public String getLatest_update() {
+        return latest_update;
+    }
+
+    public void setLatest_update(String latest_update) {
+        this.latest_update = latest_update;
+    }
+
     public int getSentiment() {
         return sentiment;
     }
@@ -116,6 +125,7 @@ public class ProtestEvent implements Parcelable {
         endDate = in.readString();
         description = in.readString();
         owner = in.readString();
+        latest_update = in.readString();
         route = in.readString();
         routeDescription = in.readString();
         sentiment = in.readInt();
@@ -150,6 +160,7 @@ public class ProtestEvent implements Parcelable {
         parcel.writeString(endDate);
         parcel.writeString(description);
         parcel.writeString(owner);
+        parcel.writeString(latest_update);
         parcel.writeString(route);
         parcel.writeString(routeDescription);
         parcel.writeInt(sentiment);

@@ -22,10 +22,18 @@
             android:id="@+id/feedDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circular_std_black"
+            android:fontFamily="@font/poppins_med"
             android:text="TextView"
+            android:textColor="#aaa"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/feedTime"
+            android:layout_width="match_parent"
             android:textColor="#F94F63"
-            android:textSize="16sp" />
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="12sp"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
