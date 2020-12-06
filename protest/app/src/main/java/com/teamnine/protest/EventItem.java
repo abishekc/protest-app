@@ -44,6 +44,7 @@ public class EventItem extends AppCompatActivity {
         TextView eventDescription = findViewById(R.id.description_input);
         TextView sentimentScore = findViewById(R.id.sentiment);
         TextView editTitle = findViewById(R.id.edit_title);
+        ImageButton sentimentIcon = findViewById(R.id.sentiment_icon);
         final TextView updateText = findViewById(R.id.update_text);
         final TextView updateTimeText = findViewById(R.id.update_time_text);
 
@@ -54,7 +55,20 @@ public class EventItem extends AppCompatActivity {
         eventStartDate.setText(passedEvent.getStartDate());
         eventEndDate.setText(passedEvent.getEndDate());
         eventDescription.setText(passedEvent.getDescription());
-        sentimentScore.setText(String.valueOf(passedEvent.getSentiment()));
+
+        if(passedEvent.getSentiment() <= -50) {
+            sentimentScore.setText("Negative.");
+            sentimentIcon.setBackground(getResources().getDrawable(R.drawable.round_sentiment_very_dissatisfied_white_48dp));
+        } else if (passedEvent.getSentiment() > -50 && passedEvent.getSentiment() <= 0) {
+            sentimentScore.setText("Somewhat Negative.");
+            sentimentIcon.setBackground(getResources().getDrawable(R.drawable.round_sentiment_dissatisfied_white_48dp));
+        } else if (passedEvent.getSentiment() > 0 && passedEvent.getSentiment() <= 50) {
+            sentimentScore.setText("Somewhat Positive.");
+            sentimentIcon.setBackground(getResources().getDrawable(R.drawable.round_sentiment_satisfied_white_48dp));
+        } else if (passedEvent.getSentiment() > 50) {
+            sentimentScore.setText("Positive!");
+            sentimentIcon.setBackground(getResources().getDrawable(R.drawable.round_emoji_emotions_white_48dp));
+        }
 
         final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("events").child(passedEvent.getId()).child("latest_update").addValueEventListener(new ValueEventListener() {
