@@ -17,15 +17,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ViewmarkersActivity extends AppCompatActivity {
+public class ViewmarkersActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     ProtestEvent currEvent;
+    String location;
+    ArrayList<MapPin> pinList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +43,9 @@ public class ViewmarkersActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ProtestEvent event = intent.getParcelableExtra("Event");
         currEvent = event;
+        location = currEvent.getLocation();
 
-        ArrayList<MapPin> pinList = currEvent.getPinList();
+        pinList = currEvent.getPinList();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.otherMarkers);
         recyclerView.setHasFixedSize(true);
@@ -47,48 +56,21 @@ public class ViewmarkersActivity extends AppCompatActivity {
         RecyclerView.Adapter mAdapter = new ViewmarkersAdapter(pinList);
 
         recyclerView.setAdapter(mAdapter);
+
+        MapView map = findViewById(R.id.map);
+        map.onCreate(savedInstanceState);
+        map.getMapAsync(this);
+
     }
 
-
-    public void mapStuff(){
-        String addr_url = "?address=" + location;
-        String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        JSONObject coords = response.optJSONArray("results").optJSONObject(0).optJSONObject("geometry").optJSONObject("bounds").optJSONObject("northeast");
-                        double lat = coords.optDouble("lat");
-                        double lon = coords.optDouble("lon");
-                        System.out.println("GHJDFSDFJSD");
-                        System.out.println(lat);
-                        newPin.setLat(lat);
-                        newPin.setLat(lon);
-
-                        System.out.println(newPin.getDescription());
-
-
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        newPin.setLon(-99999.0);
-                        newPin.setLat(-99999.0);
-                        currEvent.addPin(newPin);
-
-                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
-                        intent.putExtra("Event", currEvent);
-                        startActivity(intent);
-                    }
-                });
-        queue.add(jsonObjectRequest);
+    @Override
+    public void onMapReady(final GoogleMap googleMap) {
+        for (MapPin pin: pinList) {
+            googleMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(pin.getLat(), pin.getLon()))
+                    .title(pin.getType()));
+        }
     }
-
-
 
     public void switchToCreateMarker(View view) {
         Intent intent = new Intent(this, createNewMarker.class);
@@ -103,15 +85,10 @@ public class ViewmarkersActivity extends AppCompatActivity {
 
         TextView typeBox = (TextView) findViewById(R.id.markerType);
         TextView locationBox = (TextView) findViewById(R.id.markerLocation);
-        TextView descriptionBox = (TextView) findViewById(R.id.markerDescription);
 
         typeBox.setText(selectedPin.getType());
         locationBox.setText(selectedPin.getAddr());
-        descriptionBox.setText(selectedPin.getDescription());
 
-        System.out.println("COORDS");
-        System.out.println(selectedPin.getLat());
-        System.out.println(selectedPin.getLon());
     }
 
     public void switchToEvent(View view) {

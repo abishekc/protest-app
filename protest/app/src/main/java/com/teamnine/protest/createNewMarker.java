@@ -25,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -124,20 +125,52 @@ public class createNewMarker extends AppCompatActivity {
         Spinner typeSpinner = (Spinner) findViewById(R.id.typeofmarker);
         EditText locationBox = (EditText) findViewById(R.id.locationInput);
         EditText descriptionBox = (EditText) findViewById(R.id.descriptionInput);
-        String type = typeSpinner.getSelectedItem().toString();
-        String location = locationBox.getText().toString();
-        String description = descriptionBox.getText().toString();
+        final String type = typeSpinner.getSelectedItem().toString();
+        final String location = locationBox.getText().toString();
+        final String description = descriptionBox.getText().toString();
 
-        MapPin newPin = new MapPin(type, location, description);
-        Intent intent = new Intent(this, ViewmarkersActivity.class);
+        final Intent intent = new Intent(this, ViewmarkersActivity.class);
 
-        //TODO Add to feed?
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        String addr_url = "?address=" + location;
+        String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
 
-        currEvent.addPin(newPin);
-        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
-        intent.putExtra("Event", currEvent);
-        startActivity(intent);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        JSONObject coords = response.optJSONArray("results").optJSONObject(0).optJSONObject("geometry").optJSONObject("location");
+                        MapPin newPin = new MapPin(type, location, description);
+                        double lat = coords.optDouble("lat");
+                        double lon = coords.optDouble("lng");
+                        newPin.setLat(lat);
+                        newPin.setLon(lon);
+
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                        currEvent.addPin(newPin);
+                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
+                        intent.putExtra("Event", currEvent);
+                        startActivity(intent);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        MapPin newPin = new MapPin(type, location, description);
+                        newPin.setLat(-9999.0);
+                        newPin.setLon(-9999.0);
+
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                        currEvent.addPin(newPin);
+                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
+                        intent.putExtra("Event", currEvent);
+                        startActivity(intent);
+                    }
+                });
+        queue.add(jsonObjectRequest);
     }
 
     public void cancelCreate(View view) {

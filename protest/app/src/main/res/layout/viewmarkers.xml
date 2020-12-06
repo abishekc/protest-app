@@ -8,28 +8,6 @@
     android:backgroundTint="#000000"
     tools:context=".ViewmarkersActivity">
 
-    <EditText
-        android:id="@+id/markerDescription"
-        android:layout_width="0dp"
-        android:layout_height="397dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints=""
-        android:background="@drawable/text_box"
-        android:fontFamily="@font/poppins_light"
-        android:gravity="center"
-        android:hint="@string/create_new_protest"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/markerType" />
-
     <ImageButton
         android:id="@+id/back"
         android:layout_width="35dp"
@@ -59,13 +37,13 @@
         android:id="@+id/otherMarkersHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="224dp"
         android:fontFamily="@font/nevis_bold"
-        android:text="Other Markers Nearby"
+        android:text="Markers"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/markerType" />
 
@@ -85,16 +63,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/otherMarkers"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="363dp"
+        android:layout_height="319dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/text_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otherMarkersHeading" />
+        app:layout_constraintTop_toBottomOf="@+id/otherMarkersHeading"
+        app:layout_constraintVertical_bias="0.194" />
 
     <ImageView
         android:id="@+id/edit"
@@ -109,5 +88,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.686"
         app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="363dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:autofillHints=""
+        android:background="@drawable/text_box"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center"
+        android:hint="@string/create_new_protest"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/markerType"
+
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="169dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
