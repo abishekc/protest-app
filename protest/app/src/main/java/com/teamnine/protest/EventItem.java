@@ -70,6 +70,9 @@ public class EventItem extends AppCompatActivity {
             sentimentIcon.setBackground(getResources().getDrawable(R.drawable.round_emoji_emotions_white_48dp));
         }
 
+        updateText.setText("No updates to show.");
+        updateTimeText.setVisibility(View.GONE);
+
         final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("events").child(passedEvent.getId()).child("latest_update").addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,9 +83,11 @@ public class EventItem extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.getValue() != null) {
                                 ProtestFeed latestUpdate = snapshot.getValue(ProtestFeed.class);
-                                updateText.setText(latestUpdate.getDescription());
-                                updateTimeText.setVisibility(View.VISIBLE);
-                                updateTimeText.setText(latestUpdate.getTime());
+                                if (latestUpdate.getDescription() != null) {
+                                    updateText.setText(latestUpdate.getDescription());
+                                    updateTimeText.setVisibility(View.VISIBLE);
+                                    updateTimeText.setText(latestUpdate.getTime());
+                                }
                             }
                         }
 
