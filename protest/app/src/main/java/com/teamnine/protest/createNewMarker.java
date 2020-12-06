@@ -128,51 +128,16 @@ public class createNewMarker extends AppCompatActivity {
         String location = locationBox.getText().toString();
         String description = descriptionBox.getText().toString();
 
-        final MapPin newPin = new MapPin(type, location, description);
-        final Intent intent = new Intent(this, ViewmarkersActivity.class);
+        MapPin newPin = new MapPin(type, location, description);
+        Intent intent = new Intent(this, ViewmarkersActivity.class);
 
         //TODO Add to feed?
-        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-        String addr_url = "?address=" + location;
-        String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        JSONObject coords = response.optJSONArray("results").optJSONObject(0).optJSONObject("geometry").optJSONObject("bounds").optJSONObject("northeast");
-                        double lat = coords.optDouble("lat");
-                        double lon = coords.optDouble("lon");
-                        System.out.println("GHJDFSDFJSD");
-                        System.out.println(lat);
-                        newPin.setLat(lat);
-                        newPin.setLat(lon);
-
-                        System.out.println(newPin.getDescription());
-
-                        currEvent.addPin(newPin);
-                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
-                        intent.putExtra("Event", currEvent);
-                        startActivity(intent);
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        newPin.setLon(-99999.0);
-                        newPin.setLat(-99999.0);
-                        currEvent.addPin(newPin);
-
-                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
-                        intent.putExtra("Event", currEvent);
-                        startActivity(intent);
-                    }
-                });
-        queue.add(jsonObjectRequest);
+        currEvent.addPin(newPin);
+        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
+        intent.putExtra("Event", currEvent);
+        startActivity(intent);
     }
 
     public void cancelCreate(View view) {
