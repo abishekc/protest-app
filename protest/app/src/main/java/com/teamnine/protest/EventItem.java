@@ -1,5 +1,6 @@
 package com.teamnine.protest;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class EventItem extends AppCompatActivity {
 
@@ -42,6 +45,7 @@ public class EventItem extends AppCompatActivity {
         TextView sentimentScore = findViewById(R.id.sentiment);
         TextView editTitle = findViewById(R.id.edit_title);
         final TextView updateText = findViewById(R.id.update_text);
+        final TextView updateTimeText = findViewById(R.id.update_time_text);
 
         ImageButton editButton = (ImageButton) findViewById(R.id.edit_button);
 
@@ -63,6 +67,8 @@ public class EventItem extends AppCompatActivity {
                             if (snapshot.getValue() != null) {
                                 ProtestFeed latestUpdate = snapshot.getValue(ProtestFeed.class);
                                 updateText.setText(latestUpdate.getDescription());
+                                updateTimeText.setVisibility(View.VISIBLE);
+                                updateTimeText.setText(latestUpdate.getTime());
                             }
                         }
 

@@ -18,10 +18,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder>{
 
     public static class FeedHolder extends RecyclerView.ViewHolder {
         private final TextView feedDescription;
+        private final TextView feedTime;
 
         public FeedHolder(View view) {
             super(view);
             feedDescription = view.findViewById(R.id.feedDescription);
+            feedTime = view.findViewById(R.id.feedTime);
         }
     }
 
@@ -40,6 +42,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder>{
     @Override
     public void onBindViewHolder(@NonNull FeedAdapter.FeedHolder holder, int position) {
         holder.feedDescription.setText(feedList.get(position).getDescription());
+        holder.feedTime.setText(feedList.get(position).getTime());
     }
 
     @Override

@@ -239,29 +239,52 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
 
-    <TextView
-        android:id="@+id/update_text"
+    <LinearLayout
+        android:id="@+id/update_linear_layout"
+        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="No updates so far."
-        android:background="@drawable/text_box"
-        android:textColor="#ddd"
-        android:fontFamily="@font/poppins_med"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:paddingLeft="20dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintEnd_toStartOf="@id/guideline2"
+        android:background="@drawable/text_box"
         app:layout_constraintTop_toBottomOf="@id/pinned_messages"
-        />
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/update_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No updates so far."
+            android:textColor="#ddd"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_med"
+            android:paddingTop="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="15dp"/>
+
+        <TextView
+            android:id="@+id/update_time_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#777"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="17dp"
         android:background="#222"
-        app:layout_constraintTop_toBottomOf="@id/update_text" />
+        app:layout_constraintTop_toBottomOf="@id/update_linear_layout" />
 
     <TextView
         android:id="@+id/aid_water_stations"
@@ -273,7 +296,7 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/update_text" />
+        app:layout_constraintTop_toBottomOf="@+id/update_linear_layout" />
 
     <Button
         android:id="@+id/share_btn"

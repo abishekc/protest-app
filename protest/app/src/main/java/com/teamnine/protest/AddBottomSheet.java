@@ -2,6 +2,8 @@ package com.teamnine.protest;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -35,8 +38,17 @@ public class AddBottomSheet extends BottomSheetDialogFragment {
         View v = inflater.inflate(R.layout.add_bottom_sheet,
                 container, false);
 
-        ImageButton finishButton = (ImageButton) v.findViewById(R.id.finish_button);
+        Button finishButton = (Button) v.findViewById(R.id.finish_button);
+        Button cancelButton = (Button) v.findViewById(R.id.cancel_add_update);
+        final ProgressBar progressBar = (ProgressBar) v.findViewById(R.id.progress_bar);
         final EditText descriptionEditText = (EditText) v.findViewById(R.id.update_edit_text);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +70,7 @@ public class AddBottomSheet extends BottomSheetDialogFragment {
 
                 newFeed.setEvent_id(passedEventId);
 
-                SimpleDateFormat formatter= new SimpleDateFormat("MM-dd 'at' HH:mm");
+                SimpleDateFormat formatter= new SimpleDateFormat("MM.dd 'at' HH:mm");
                 Date date = new Date(System.currentTimeMillis());
                 newFeed.setTime(formatter.format(date));
 
@@ -67,6 +79,16 @@ public class AddBottomSheet extends BottomSheetDialogFragment {
                 if (passedEventId != "") {
                     mDatabase.child("events").child(newFeed.getEvent_id()).child("latest_update").setValue(newFeed.getId());
                 }
+
+                progressBar.setVisibility(View.VISIBLE);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        // Actions to do after 10 seconds
+                        dismiss();
+                    }
+                }, 1500);
             }
         });
 
