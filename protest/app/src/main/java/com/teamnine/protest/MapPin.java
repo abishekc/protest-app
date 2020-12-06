@@ -15,9 +15,7 @@ public class MapPin implements Parcelable {
         this.description = description;
     }
 
-    public MapPin() {
-
-    }
+    public MapPin(){}
 
     public String getType() {
         return type;

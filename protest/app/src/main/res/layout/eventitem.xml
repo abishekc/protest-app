@@ -53,11 +53,12 @@
         android:id="@+id/back_button"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="36dp"
         android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
-        android:backgroundTint="@android:color/white"/>
+        android:backgroundTint="@android:color/white"
+        android:onClick="switchToEventList"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/edit_title"

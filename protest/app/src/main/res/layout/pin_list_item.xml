@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    android:onClick="switchToPin">
 
     <TextView
         android:id="@+id/pinLoc"
@@ -13,6 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/circular_std_black"
         android:text="Address"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/pinType"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/circular_std_black"
         android:text="Aid"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
