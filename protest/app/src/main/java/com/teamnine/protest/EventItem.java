@@ -60,8 +60,10 @@ public class EventItem extends AppCompatActivity {
                     mDatabase.child("updates").child(snapshot.getValue().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            ProtestFeed latestUpdate = snapshot.getValue(ProtestFeed.class);
-                            updateText.setText(latestUpdate.getDescription());
+                            if (snapshot.getValue() != null) {
+                                ProtestFeed latestUpdate = snapshot.getValue(ProtestFeed.class);
+                                updateText.setText(latestUpdate.getDescription());
+                            }
                         }
 
                         @Override
