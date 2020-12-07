@@ -103,6 +103,8 @@ public class Createnewprotest1Activity extends AppCompatActivity {
             public void onPlaceSelected(Place place) {
                 // TODO: Get info about the selected place.
                 Log.i("LOCATION", "Place: " + place.getName() + ", " + place.getId());
+                EditText locationBox = (EditText) findViewById(R.id.location_input);
+                locationBox.setText(place.getName());
             }
 
             @Override
@@ -142,7 +144,7 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         String endDate = endDateBox.getText().toString();
 
         boolean nameEmpty = TextUtils.isEmpty(name);
-        //boolean locationEmpty = TextUtils.isEmpty(location);
+        boolean locationEmpty = TextUtils.isEmpty(location);
         boolean descriptionEmpty = TextUtils.isEmpty(description);
         boolean startEmpty = TextUtils.isEmpty(startDate);
         boolean endEmpty = TextUtils.isEmpty(endDate);
@@ -154,10 +156,12 @@ public class Createnewprotest1Activity extends AppCompatActivity {
             nameBox.setError(null);
         }
 
-        /*if (locationEmpty) {
+        if (locationEmpty) {
             locationBox.setError("Location is required.");
             locationBox.setHintTextColor(Color.parseColor("#F94F63"));
-        }*/
+        }else{
+            locationBox.setError(null);
+        }
 
         if (descriptionEmpty) {
             descriptionBox.setError("Description is required.");
@@ -180,7 +184,7 @@ public class Createnewprotest1Activity extends AppCompatActivity {
             endDateBox.setError(null);
         }
 
-        if(nameEmpty || descriptionEmpty || startEmpty || endEmpty){
+        if(nameEmpty || locationEmpty ||descriptionEmpty || startEmpty || endEmpty){
             return;
         }
 
