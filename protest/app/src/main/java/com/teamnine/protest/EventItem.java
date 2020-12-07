@@ -176,6 +176,8 @@ public class EventItem extends AppCompatActivity {
     }
 
     public void switchToEventList(View view) {
-        finish();
+        Intent intent = new Intent(this, MyprotestsActivity.class);
+        intent.putExtra("Event", currEvent);
+        startActivity(intent);
     }
 }

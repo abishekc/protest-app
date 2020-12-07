@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,6 +35,7 @@ public class ViewmarkersActivity extends AppCompatActivity implements OnMapReady
     ProtestEvent currEvent;
     String location;
     ArrayList<MapPin> pinList;
+    GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,19 +59,28 @@ public class ViewmarkersActivity extends AppCompatActivity implements OnMapReady
 
         recyclerView.setAdapter(mAdapter);
 
-        MapView map = findViewById(R.id.map);
-        map.onCreate(savedInstanceState);
-        map.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
 
     }
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
+        LatLng protestMarker = new LatLng(currEvent.getLat(), currEvent.getLon());
+        googleMap.addMarker(new MarkerOptions()
+                .position(protestMarker)
+                .title("Main Event"));
+
         for (MapPin pin: pinList) {
             googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(pin.getLat(), pin.getLon()))
                     .title(pin.getType()));
         }
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(protestMarker, 15));
+        map = googleMap;
     }
 
     public void switchToCreateMarker(View view) {
@@ -89,6 +100,13 @@ public class ViewmarkersActivity extends AppCompatActivity implements OnMapReady
         typeBox.setText(selectedPin.getType());
         locationBox.setText(selectedPin.getAddr());
 
+        LatLng moveDest;
+        if (selectedPin.getLon() == -9999.0) {
+            moveDest = new LatLng(currEvent.getLat(), currEvent.getLon());
+        } else {
+            moveDest = new LatLng(selectedPin.getLat(), selectedPin.getLon());
+        }
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(moveDest, 15));
     }
 
     public void switchToEvent(View view) {
