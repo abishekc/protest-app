@@ -3,12 +3,15 @@ package com.teamnine.protest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewDebug;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -35,9 +38,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 public class Createnewprotest1Activity extends AppCompatActivity {
+    DatePickerDialog picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,24 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         /* UI COMPONENTS */
         /* BUTTONS */
         ImageButton next = (ImageButton) findViewById(R.id.next_screen_two);
+        final EditText startDateBox = (EditText) findViewById(R.id.enterDate1);
+        final EditText endDateBox = (EditText) findViewById(R.id.enterDate2);
+
+        startDateBox.setInputType(InputType.TYPE_NULL);
+        startDateBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerStart(startDateBox);
+            }
+        });
+
+        endDateBox.setInputType(InputType.TYPE_NULL);
+        endDateBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerStart(endDateBox);
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +77,21 @@ public class Createnewprotest1Activity extends AppCompatActivity {
                 nextScreen();
             }
         });
+    }
+
+    private void datePickerStart(final EditText box) {
+        final Calendar cldr = Calendar.getInstance();
+        int day = cldr.get(Calendar.DAY_OF_MONTH);
+        int month = cldr.get(Calendar.MONTH);
+        int year = cldr.get(Calendar.YEAR);
+        picker = new DatePickerDialog(Createnewprotest1Activity.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        box.setText(dayOfMonth + "." + (monthOfYear + 1) + "." + year);
+                    }
+                }, year, month, day);
+        picker.show();
     }
 
     public void nextScreen() {

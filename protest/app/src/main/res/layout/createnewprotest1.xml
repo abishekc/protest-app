@@ -111,44 +111,55 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/location_input" />
-
-    <EditText
-        android:id="@+id/enterDate1"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
+    <LinearLayout
+        android:id="@+id/dateLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:background="@drawable/text_box_crossscreen"
-        android:ems="10"
-        android:fontFamily="@font/circular_std_black"
-        android:hint="START"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="18dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#aaa"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/enterDate2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/datesHeading" />
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/datesHeading"
+        android:weightSum="2">
 
-    <EditText
-        android:id="@+id/enterDate2"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/text_box_crossscreen"
-        android:ems="10"
-        android:fontFamily="@font/circular_std_black"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="18dp"
-        android:hint="END"
-        android:textColorHint="#aaa"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/enterDate1"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+        <EditText
+            android:id="@+id/enterDate1"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:background="@drawable/text_box_crossscreen"
+            android:ems="10"
+            android:fontFamily="@font/poppins_med"
+            android:hint="START"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="18dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#aaa"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="false"
+            android:paddingTop="4dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/enterDate2"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:background="@drawable/text_box_crossscreen"
+            android:ems="10"
+            android:fontFamily="@font/poppins_med"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="18dp"
+            android:paddingTop="4dp"
+            android:hint="END"
+            android:textColorHint="#aaa"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:focusable="false"
+            android:clickable="true" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/descriptionHeading"
@@ -164,7 +175,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/enterDate1" />
+        app:layout_constraintTop_toBottomOf="@+id/dateLinearLayout" />
 
     <EditText
         android:id="@+id/enterDescription"
