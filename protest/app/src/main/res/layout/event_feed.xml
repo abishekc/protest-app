@@ -14,6 +14,7 @@
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="36dp"
+        android:onClick="back"
         android:background="@drawable/baseline_keyboard_backspace_black_48dp_upd"
         android:backgroundTint="@android:color/white"/>
 

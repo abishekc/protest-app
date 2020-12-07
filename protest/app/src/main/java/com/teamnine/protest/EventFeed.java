@@ -54,20 +54,21 @@ public class EventFeed extends AppCompatActivity {
         }
 
         if (add_flag) {
-            setupBottomModal(passedEvent);
+            setupBottomModal(passedEvent, add_flag);
         }
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setupBottomModal(passedEvent);
+                setupBottomModal(passedEvent, add_flag);
             }
         });
     }
 
-    public void setupBottomModal(ProtestEvent passedEvent) {
+    public void setupBottomModal(ProtestEvent passedEvent, Boolean add_flag) {
         AddBottomSheet bottomSheet = new AddBottomSheet();
         bottomSheet.setPassedEventId(passedEvent.getId());
+        bottomSheet.setAdd_flag(add_flag);
         bottomSheet.show(getSupportFragmentManager(),
                 "ModalBottomSheet");
         findFeedsByEvent();
@@ -118,5 +119,9 @@ public class EventFeed extends AppCompatActivity {
         }
 
         recyclerView.setAdapter(adapter);
+    }
+
+    public void back(View view) {
+        finish();
     }
 }

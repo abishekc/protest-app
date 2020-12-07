@@ -40,7 +40,7 @@
         android:textSize="14sp"
         android:layout_marginTop="10dp"
         android:hint="Keep it short and sweet. Click to type your update here. Remember, you cannot delete an update once posted!"
-        android:textColorHint="#ddd"
+        android:textColorHint="#777"
         android:fontFamily="@font/poppins_med"
         android:textColor="#aaa"
         android:padding="0dp"

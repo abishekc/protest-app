@@ -26,9 +26,14 @@ import java.util.Date;
 public class AddBottomSheet extends BottomSheetDialogFragment {
 
     public String passedEventId = "";
+    public Boolean add_flag = false;
 
     public void setPassedEventId(String passedEventId) {
         this.passedEventId = passedEventId;
+    }
+
+    public void setAdd_flag(Boolean add_flag) {
+        this.add_flag = add_flag;
     }
 
     @Override
@@ -47,6 +52,9 @@ public class AddBottomSheet extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
+                if (add_flag) {
+                    getActivity().finish();
+                }
             }
         });
 
