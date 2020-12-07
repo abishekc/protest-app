@@ -137,11 +137,6 @@ public class createNewMarker extends AppCompatActivity {
 
         final Intent intent = new Intent(this, ViewmarkersActivity.class);
 
-        CheckBox wantToPost = (CheckBox) findViewById(R.id.checkBox);
-        if (wantToPost.isChecked()) {
-            postToFeed(type, location, description);
-        }
-
         String addr_url = "?address=" + location;
         String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
 
@@ -160,8 +155,13 @@ public class createNewMarker extends AppCompatActivity {
 
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
+                        CheckBox wantToPost = (CheckBox) findViewById(R.id.checkBox);
+                        if (wantToPost.isChecked()) {
+                            postToFeed(type, location, description);
+                        }
+
                         currEvent.addPin(newPin);
-                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
+                        mDatabase.child("events").child(currEvent.getId()).child("pinList").setValue(currEvent.getPinList());
                         intent.putExtra("Event", currEvent);
                         startActivity(intent);
                     }
@@ -175,8 +175,13 @@ public class createNewMarker extends AppCompatActivity {
 
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
+                        CheckBox wantToPost = (CheckBox) findViewById(R.id.checkBox);
+                        if (wantToPost.isChecked()) {
+                            postToFeed(type, location, description);
+                        }
+
                         currEvent.addPin(newPin);
-                        mDatabase.child("events").child(currEvent.getId()).setValue(currEvent);
+                        mDatabase.child("events").child(currEvent.getId()).child("pinList").setValue(currEvent.getPinList());
                         intent.putExtra("Event", currEvent);
                         startActivity(intent);
                     }
@@ -216,6 +221,6 @@ public class createNewMarker extends AppCompatActivity {
 
         mDatabase.child("updates").child(newFeed.getId()).setValue(newFeed);
 
-        //mDatabase.child("events").child(newFeed.getEvent_id()).child("latest_update").setValue(newFeed.getId());
+        mDatabase.child("events").child(newFeed.getEvent_id()).child("latest_update").setValue(newFeed.getId());
     }
 }
