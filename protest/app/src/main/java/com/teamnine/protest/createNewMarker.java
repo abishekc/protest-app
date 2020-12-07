@@ -215,5 +215,7 @@ public class createNewMarker extends AppCompatActivity {
         newFeed.setTime(formatter.format(date));
 
         mDatabase.child("updates").child(newFeed.getId()).setValue(newFeed);
+
+        //mDatabase.child("events").child(newFeed.getEvent_id()).child("latest_update").setValue(newFeed.getId());
     }
 }

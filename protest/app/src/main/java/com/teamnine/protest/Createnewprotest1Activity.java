@@ -120,7 +120,7 @@ public class Createnewprotest1Activity extends AppCompatActivity {
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        box.setText(dayOfMonth + "." + (monthOfYear + 1) + "." + year);
+                        box.setText((monthOfYear + 1) + "." +  dayOfMonth + "." + year);
                     }
                 }, year, month, day);
         picker.show();
