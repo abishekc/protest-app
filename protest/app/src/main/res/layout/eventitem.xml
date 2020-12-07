@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/circular_std_black"
+        android:fontFamily="@font/nevis_bold"
         android:text="EVENT NAME"
         android:textColor="#F94F63"
         android:textSize="30sp"
