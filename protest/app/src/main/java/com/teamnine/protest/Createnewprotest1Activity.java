@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.services.language.v1beta2.CloudNaturalLanguage;
@@ -23,6 +29,10 @@ import com.google.api.services.language.v1beta2.model.Document;
 import com.google.api.services.language.v1beta2.model.Entity;
 import com.google.api.services.language.v1beta2.model.Features;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -71,7 +81,7 @@ public class Createnewprotest1Activity extends AppCompatActivity {
 
         ProtestEvent newEvent = new ProtestEvent(id, name, location, startDate, endDate, description, owner);
 
-
+        setLatLon(newEvent);
 
         completeSentimentAnalysis(description, newEvent, intent);
 
@@ -134,5 +144,31 @@ public class Createnewprotest1Activity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void setLatLon(final ProtestEvent event) {
+        String addr_url = "?address=" + event.getLocation();
+        String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        JSONObject coords = response.optJSONArray("results").optJSONObject(0).optJSONObject("geometry").optJSONObject("location");
+                        double lat = coords.optDouble("lat");
+                        double lon = coords.optDouble("lng");
+                        event.setLat(lat);
+                        event.setLon(lon);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        event.setLat(-9999.0);
+                        event.setLon(-9999.0);
+                    }
+                });
+        queue.add(jsonObjectRequest);
     }
 }

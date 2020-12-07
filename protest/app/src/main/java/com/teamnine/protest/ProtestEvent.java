@@ -20,6 +20,8 @@ public class ProtestEvent implements Parcelable {
     String route = null;
     String routeDescription = null;
     ArrayList<MapPin> pinList;
+    double lat;
+    double lon;
 
     public ProtestEvent() {}
 
@@ -115,6 +117,13 @@ public class ProtestEvent implements Parcelable {
 
     public ArrayList<MapPin> getPinList() { return pinList; }
     public void setPinList(ArrayList<MapPin> pinList) { this.pinList = pinList; }
+
+    public double getLat() { return lat; }
+    public void setLat(double lat) { this.lat = lat; }
+
+    public double getLon() { return lon; }
+    public void setLon(double lon) { this.lon = lon; }
+
     /* SETTERS AND GETTERS END*/
 
     protected ProtestEvent(Parcel in) {
@@ -132,6 +141,8 @@ public class ProtestEvent implements Parcelable {
         ArrayList newPinList = new ArrayList<MapPin>();
         in.readTypedList(newPinList, MapPin.CREATOR);
         pinList = newPinList;
+        lat = in.readDouble();
+        lon = in.readDouble();
     }
 
     public static final Creator<ProtestEvent> CREATOR = new Creator<ProtestEvent>() {
@@ -165,6 +176,8 @@ public class ProtestEvent implements Parcelable {
         parcel.writeString(routeDescription);
         parcel.writeInt(sentiment);
         parcel.writeTypedList(pinList);
+        parcel.writeDouble(lat);
+        parcel.writeDouble(lon);
     }
 
     public void addPin (MapPin newPin) {
