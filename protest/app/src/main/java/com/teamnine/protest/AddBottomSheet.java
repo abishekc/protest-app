@@ -1,9 +1,11 @@
 package com.teamnine.protest;
 
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +63,14 @@ public class AddBottomSheet extends BottomSheetDialogFragment {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(TextUtils.isEmpty(descriptionEditText.getText().toString())){
+                    descriptionEditText.setError("Put Something Here");
+                    descriptionEditText.setHintTextColor(Color.parseColor("#F94F63"));
+                    return;
+                }else{
+                    descriptionEditText.setError(null);
+                }
+
                 String currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 ProtestFeed newFeed = new ProtestFeed("", "", "", "", "");
 
