@@ -24,26 +24,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/location_input"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/text_box_crossscreen"
-        android:ems="10"
-        android:fontFamily="@font/circular_std_black"
-        android:hint="EX. DOWNTOWN SAN DIEGO"
-        android:inputType="textPostalAddress"
-        android:paddingLeft="18dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#aaa"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/Location_heading" />
-
     <TextView
         android:id="@+id/Location_heading"
         android:layout_width="wrap_content"
@@ -51,7 +31,7 @@
         android:layout_marginTop="18dp"
         android:fontFamily="@font/circular_std_black"
         android:paddingLeft="2dp"
-        android:text="@string/Location_heading"
+        android:text="NAME"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -67,8 +47,44 @@
         android:layout_marginTop="4dp"
         android:background="@drawable/text_box_crossscreen"
         android:ems="10"
-        android:fontFamily="@font/circular_std_black"
+        android:fontFamily="@font/poppins_med"
         android:hint="EX. BLM PROTEST SD"
+        android:inputType="textPostalAddress"
+        android:paddingLeft="18dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#aaa"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Location_heading" />
+
+    <TextView
+        android:id="@+id/nameHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/circular_std_black"
+        android:paddingLeft="2dp"
+        android:text="LOCATION"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+
+    <EditText
+        android:id="@+id/location_input"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/text_box_crossscreen"
+        android:ems="10"
+        android:fontFamily="@font/poppins_med"
+        android:hint="EX. DOWNTOWN SAN DIEGO"
         android:inputType="text"
         android:paddingLeft="18dp"
         android:textColor="#FFFFFF"
@@ -79,22 +95,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/nameHeading" />
-
-    <TextView
-        android:id="@+id/nameHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/circular_std_black"
-        android:paddingLeft="2dp"
-        android:text="EVENT NAME"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/location_input" />
 
     <TextView
         android:id="@+id/datesHeading"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+        app:layout_constraintTop_toBottomOf="@+id/location_input" />
 
     <EditText
         android:id="@+id/enterDate1"
