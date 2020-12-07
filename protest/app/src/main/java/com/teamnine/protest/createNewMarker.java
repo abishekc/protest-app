@@ -12,8 +12,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -28,10 +30,14 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class createNewMarker extends AppCompatActivity {
 
@@ -131,6 +137,11 @@ public class createNewMarker extends AppCompatActivity {
 
         final Intent intent = new Intent(this, ViewmarkersActivity.class);
 
+        CheckBox wantToPost = (CheckBox) findViewById(R.id.checkBox);
+        if (wantToPost.isChecked()) {
+            postToFeed(type, location, description);
+        }
+
         String addr_url = "?address=" + location;
         String url = "https://maps.googleapis.com/maps/api/geocode/json" + addr_url + "&key=AIzaSyAHg81pUARe10Jif6txnxuso745wcJAi6Q";
 
@@ -175,5 +186,34 @@ public class createNewMarker extends AppCompatActivity {
 
     public void cancelCreate(View view) {
         finish();
+    }
+
+    private void postToFeed(String type, String location, String description) {
+        String currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String updateText = "A new " + type.toLowerCase() + " was added at " + location + ".  Description: " + description;
+
+        ProtestFeed newFeed = new ProtestFeed("", "", "", "", "");
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        String key = mDatabase.child("updates").push().getKey();
+
+        newFeed.setId(key);
+        if (description != "") {
+            newFeed.setDescription(updateText);
+        } else {
+            newFeed.setDescription("None");
+        }
+
+        if (currentUID != null && currentUID != "") {
+            newFeed.setOwner(currentUID);
+        }
+
+        newFeed.setEvent_id(currEvent.getId());
+
+        SimpleDateFormat formatter= new SimpleDateFormat("MM.dd 'at' HH:mm");
+        Date date = new Date(System.currentTimeMillis());
+        newFeed.setTime(formatter.format(date));
+
+        mDatabase.child("updates").child(newFeed.getId()).setValue(newFeed);
     }
 }
