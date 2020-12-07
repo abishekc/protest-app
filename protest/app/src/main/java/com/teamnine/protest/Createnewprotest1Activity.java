@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewDebug;
@@ -127,8 +129,6 @@ public class Createnewprotest1Activity extends AppCompatActivity {
     }
 
     public void nextScreen() {
-        Intent intent = new Intent(this, CreateNewProtest2Activity.class);
-
         EditText nameBox = (EditText) findViewById(R.id.name_input);
         EditText locationBox = (EditText) findViewById(R.id.location_input);
         EditText startDateBox = (EditText) findViewById(R.id.enterDate1);
@@ -140,6 +140,52 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         String description = descriptionBox.getText().toString();
         String startDate = startDateBox.getText().toString();
         String endDate = endDateBox.getText().toString();
+
+        boolean nameEmpty = TextUtils.isEmpty(name);
+        //boolean locationEmpty = TextUtils.isEmpty(location);
+        boolean descriptionEmpty = TextUtils.isEmpty(description);
+        boolean startEmpty = TextUtils.isEmpty(startDate);
+        boolean endEmpty = TextUtils.isEmpty(endDate);
+
+        if (nameEmpty) {
+            nameBox.setError("Event name is required.");
+            nameBox.setHintTextColor(Color.parseColor("#F94F63"));
+        }else{
+            nameBox.setError(null);
+        }
+
+        /*if (locationEmpty) {
+            locationBox.setError("Location is required.");
+            locationBox.setHintTextColor(Color.parseColor("#F94F63"));
+        }*/
+
+        if (descriptionEmpty) {
+            descriptionBox.setError("Description is required.");
+            descriptionBox.setHintTextColor(Color.parseColor("#F94F63"));
+        }else{
+            descriptionBox.setError(null);
+        }
+
+        if (startEmpty) {
+            startDateBox.setError("Start date is required.");
+            startDateBox.setHintTextColor(Color.parseColor("#F94F63"));
+        }else{
+            startDateBox.setError(null);
+        }
+
+        if (endEmpty) {
+            endDateBox.setError("End date is required.");
+            endDateBox.setHintTextColor(Color.parseColor("#F94F63"));
+        }else{
+            endDateBox.setError(null);
+        }
+
+        if(nameEmpty || descriptionEmpty || startEmpty || endEmpty){
+            return;
+        }
+
+        Intent intent = new Intent(this, CreateNewProtest2Activity.class);
+
 
         String owner = "empty_ownerE1";
         String id = "empty_idE1";
