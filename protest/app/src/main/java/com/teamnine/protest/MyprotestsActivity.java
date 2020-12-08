@@ -60,7 +60,7 @@ public class MyprotestsActivity extends AppCompatActivity {
                 for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     ProtestEvent protestEvent = eventSnapshot.getValue(ProtestEvent.class);
                         eventList.add(protestEvent);
-                        Log.e("TEST", protestEvent.getName());
+//                        Log.e("TEST", protestEvent.getName());
                 }
                 loadRecycler();
             }
