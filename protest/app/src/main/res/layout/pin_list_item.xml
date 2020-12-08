@@ -3,44 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:onClick="switchToPin">
-
-    <TextView
-        android:id="@+id/pinLoc"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/circular_std_black"
-        android:text="Address"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/pinType"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/pinType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/circular_std_black"
-        android:text="Aid"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/pinIndex"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:onClick="switchToPin"
-        android:text="TextView"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/pinLoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="TextView"
+            android:textColor="#aaa"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/pinDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_med"
+            android:padding="0dp"
+            android:text="TextView"
+            android:textColor="#aaa"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/pinType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F94F63"
+            android:text="AnotherTextView"
+            android:padding="0dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/pinIndex"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="switchToPin"
+            android:text="TextView"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

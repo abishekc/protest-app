@@ -18,12 +18,14 @@ public class ViewmarkersAdapter extends RecyclerView.Adapter<ViewmarkersAdapter.
 
         private final TextView pinType;
         private final TextView pinLoc;
+        private final TextView pinDesc;
         private final TextView arrayLocation;
 
         public ViewmarkersHolder (View pin_list_item) {
             super(pin_list_item);
             pinType = pin_list_item.findViewById(R.id.pinType);
             pinLoc = pin_list_item.findViewById(R.id.pinLoc);
+            pinDesc = pin_list_item.findViewById(R.id.pinDesc);
             arrayLocation = pin_list_item.findViewById(R.id.pinIndex);
         }
     }
@@ -45,6 +47,7 @@ public class ViewmarkersAdapter extends RecyclerView.Adapter<ViewmarkersAdapter.
         MapPin currPin = pins.get(position);
         holder.pinType.setText(currPin.type);
         holder.pinLoc.setText(currPin.addr);
+        holder.pinDesc.setText(currPin.description);
         holder.arrayLocation.setText(String.valueOf(position));
     }
 
