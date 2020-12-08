@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="error">#F94F63</color>
+    <color name="fill">#fff</color>
+    <color name="place_autocomplete_search_text">#fff</color>
+    <color name="place_autocomplete_search_hint">#fff</color>
 </resources>

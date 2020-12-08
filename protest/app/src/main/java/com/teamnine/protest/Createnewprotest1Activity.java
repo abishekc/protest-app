@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
@@ -93,10 +94,22 @@ public class Createnewprotest1Activity extends AppCompatActivity {
         }
 
         // Initialize the AutocompleteSupportFragment.
-        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+        final AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
                 getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
 
         autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+        //autocompleteFragment.getView().findViewById(R.id.places_autocomplete_clear_button).setVisibility(View.GONE);
+        autocompleteFragment.getView().findViewById(R.id.places_autocomplete_search_button).setVisibility(View.GONE);
+        EditText autocompleteEditText = (EditText) autocompleteFragment.getView().findViewById(R.id.places_autocomplete_search_input);
+
+        Typeface poppinsMed = Typeface.createFromAsset(getAssets(), "fonts/poppins_med.ttf");
+        autocompleteEditText.setTypeface(poppinsMed);
+
+        final float scale = autocompleteFragment.getContext().getResources().getDisplayMetrics().density;
+        int pixels = (int) (4.8 * scale + 0.5f);
+        autocompleteEditText.setTextSize(pixels);
+        autocompleteEditText.setTextColor(getResources().getColor(R.color.fill));
+        autocompleteEditText.setBackground(getResources().getDrawable(R.drawable.text_box));
 
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override

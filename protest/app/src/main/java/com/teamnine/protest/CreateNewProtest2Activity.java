@@ -44,7 +44,7 @@ public class CreateNewProtest2Activity extends AppCompatActivity {
     public void nextScreen() {
         Intent intent = new Intent(this, CreateNewProtest3Activity.class);
 
-        EditText routeDescriptionBox = (EditText) findViewById(R.id.description_box);
+        EditText routeDescriptionBox = (EditText) findViewById(R.id.route_description_box);
         String routeDescription = routeDescriptionBox.getText().toString();
 
         if (!routeDescription.equals("")) {
